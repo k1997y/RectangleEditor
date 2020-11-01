@@ -5,11 +5,17 @@ public:
 	Command();
 
 	enum command {
-		CREATE,
-		DELETE
+		CREATE=1,
+		DELETE=2
 	};
 
-	void create_cmd();
-	void delete_cmd();
+	void createCmd();
+	void deleteCmd();
+	//exitフラグを立てる
+	void exitMsg();	
+
+	bool getIsExit() { return isExit; }
 private:
+	//ループを出るか出ないかのフラグ
+	bool isExit;
 };
