@@ -5,6 +5,14 @@ Command::Command() :
 {
 }
 
+void Command::createCmd() {
+	
+}
+
+void Command::deleteCmd() {
+
+}
+
 void Command::exitMsg() {
 	isExit = true;
 }

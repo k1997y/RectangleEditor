@@ -2,19 +2,24 @@
 #include <iostream>
 
 int main(int argc, char **argv) {
-	Command command;
-	int cmdNum=0;	//入力されたコマンド値を格納する変数
+	Command cmd;
+	int cmdNum = 0;	//入力されたコマンド値を格納する変数
 
-	while (command.getIsExit()) {
+	while (!cmd.getIsExit()) {
 		std::cout << "コマンドを入力\n";
 		std::cout << "1: create\n2: delete\n→";
 		std::cin >> cmdNum;
 
 		switch (cmdNum) {
-		CREATE:
-			command.createCmd();
-		DELETE:
-			command.deleteCmd();
+			case cmd.CREATE:
+				cmd.createCmd();
+				break;
+			case cmd.DELETE:
+				cmd.deleteCmd();
+				break;
+			default:
+				std::cout << "コマンドが不正です．もう一度入力してください．" << std::endl;
+				break;
 		}
 	}
 	return 0;
