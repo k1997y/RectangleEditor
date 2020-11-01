@@ -1,0 +1,21 @@
+#pragma once
+
+class Command {
+public:
+	Command();
+
+	enum command {
+		CREATE=1,
+		DELETE=2
+	};
+
+	void createCmd();
+	void deleteCmd();
+	//exitフラグを立てる
+	void exitMsg();	
+
+	bool getIsExit() { return isExit; }
+private:
+	//ループを出るか出ないかのフラグ
+	bool isExit;
+};
