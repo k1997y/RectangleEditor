@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="RectangleEditor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Command.h" />

@@ -1,5 +1,10 @@
 #include "Command.h"
 
-Command::Command() {
+Command::Command() :
+	isExit(false)
+{
+}
 
+void Command::exitMsg() {
+	isExit = true;
 }
