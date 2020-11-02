@@ -7,7 +7,10 @@ int main(int argc, char **argv) {
 
 	while (!cmd.getIsExit()) {
 		std::cout << "コマンドを入力\n";
-		std::cout << "1: create\n2: delete\n→";
+		std::cout << \
+			"1: create\n\t新たな長方形を生成\n \
+			 2: delete\n\t選択した長方形を削除\n \
+			 3: exit\n\tプログラムの終了\n→";
 		std::cin >> cmdNum;
 
 		switch (cmdNum) {
@@ -17,6 +20,8 @@ int main(int argc, char **argv) {
 			case cmd.DELETE:
 				cmd.deleteCmd();
 				break;
+			case cmd.EXIT:
+				cmd.exitMsg();
 			default:
 				std::cout << "コマンドが不正です．もう一度入力してください．" << std::endl;
 				break;
