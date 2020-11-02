@@ -1,4 +1,5 @@
-#pragma once
+ï»¿#pragma once
+#include "Board.h"
 
 class Command {
 public:
@@ -11,11 +12,13 @@ public:
 
 	void createCmd();
 	void deleteCmd();
-	//exitƒtƒ‰ƒO‚ğ—§‚Ä‚é
+	//exitãƒ•ãƒ©ã‚°ã‚’ç«‹ã¦ã‚‹
 	void exitMsg();	
 
 	bool getIsExit() { return isExit; }
 private:
-	//ƒ‹[ƒv‚ğo‚é‚©o‚È‚¢‚©‚Ìƒtƒ‰ƒO
+	Board board;
+	//ãƒ«ãƒ¼ãƒ—ã‚’å‡ºã‚‹ã‹å‡ºãªã„ã‹ã®ãƒ•ãƒ©ã‚°
 	bool isExit;
+	
 };
