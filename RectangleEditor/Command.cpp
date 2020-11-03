@@ -31,7 +31,6 @@ void Command::deleteCmd() {
 	std::cin >> n;
 
 	//削除したい長方形にアクセスして削除
-	//TODO: itrが正しい削除番号に到達しているかどうかの確認必要
 	auto itr = board.onBoardRect.begin();
 	for (int i = 0; i < n;i++) {
 		++itr;

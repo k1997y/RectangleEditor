@@ -2,7 +2,6 @@
 #include<iostream>
 
 class Rectangle {
-	//TODO: width, height‚ªBoard‚Å‚Ílength, width‚È‚Ì‚Å“ˆê
 public:
 	Rectangle();
 	Rectangle(int length,int width,  int x, int y, int color);
