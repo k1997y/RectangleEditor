@@ -1,6 +1,8 @@
 #include "Command.h"
 #include <iostream>
 
+int input();
+
 int main(int argc, char **argv) {
 	Command cmd;
 	int cmdNum = 0;	//入力されたコマンド値を格納する変数
@@ -13,6 +15,9 @@ int main(int argc, char **argv) {
 		switch (cmdNum) {
 			case cmd.CREATE:
 				cmd.createCmd();
+				break;
+			case cmd.MOVE:
+				cmd.moveCmd();
 				break;
 			case cmd.DELETE:
 				cmd.deleteCmd();
@@ -29,4 +34,9 @@ int main(int argc, char **argv) {
 		}
 	}
 	return 0;
+}
+
+//intの入力関数
+int input() {
+	
 }

@@ -8,12 +8,14 @@ public:
 
 	enum command {
 		CREATE = 1,
-		DELETE = 2,
-		DISPLAY = 3,
-		EXIT = 4
+		MOVE =2,
+		DELETE = 3,
+		DISPLAY = 4,
+		EXIT = 5
 	};
 
 	void createCmd();
+	void moveCmd();
 	void deleteCmd();
 	void displayBoardCmd();
 
