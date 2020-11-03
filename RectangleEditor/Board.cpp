@@ -9,6 +9,9 @@ Board::~Board() {
 
 bool Board::isDuplicating(Rectangle r) {
 	for (auto &e : onBoardRect) {
-
+		if (e == r) {
+			return true;
+		}
 	}
+	return false;
 }

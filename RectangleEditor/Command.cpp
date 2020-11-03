@@ -20,7 +20,12 @@ void Command::createCmd() {
 	std::cin >> y;
 
 	Rectangle *r = new Rectangle(l, w, x, y);
-	board.onBoardRect.push_back(*r);
+	//重複がなければpush
+	if (board.isDuplicating(*r)) {
+		std::cout << "既に同じ長方形が存在しています\n" << std::endl;
+	} else {
+		board.onBoardRect.push_back(*r);
+	}
 }
 
 //TODO: ボード上に長方形が無い場合の処理
