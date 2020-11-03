@@ -5,6 +5,7 @@ Command::Command() :
 {
 }
 
+//TODO: 長方形個数を10に制限
 void Command::createCmd() {
 	int l, w, x, y;
 
@@ -22,6 +23,7 @@ void Command::createCmd() {
 	board.onBoardRect.push_back(*r);
 }
 
+//TODO: ボード上に長方形が無い場合の処理
 void Command::deleteCmd() {
 	//TODO: 入力エラー処理
 	int n;
@@ -37,6 +39,7 @@ void Command::deleteCmd() {
 	board.onBoardRect.erase(itr);
 }
 
+//TODO: ボード上の長方形が0のときの処理
 void Command::displayBoardCmd() {
 	int i = 0;
 	for (auto &r : board.onBoardRect) {

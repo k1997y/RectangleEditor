@@ -1,8 +1,8 @@
 #include"Rectangle.h"
 
-Rectangle::Rectangle(){}
+Rectangle::Rectangle() {}
 
-Rectangle::Rectangle(int length, int width,  int x, int y, int color) {
+Rectangle::Rectangle(int length, int width, int x, int y, int color) {
 	this->length = length;
 	this->width = width;
 	this->x = x;
@@ -10,7 +10,7 @@ Rectangle::Rectangle(int length, int width,  int x, int y, int color) {
 	this->color = color;
 }
 
-Rectangle::Rectangle(int length, int width, int x, int y):
+Rectangle::Rectangle(int length, int width, int x, int y) :
 	length(length),
 	width(width),
 	x(x),
@@ -25,9 +25,22 @@ void Rectangle::showRectAttribute() {
 bool Rectangle::isSegment() {
 	return this->width == 0 && this->length > 0 || this->width > 0 && this->length == 0;
 }
+
 bool Rectangle::isPoint() {
 	return this->width == 0 && this->length == 0;
 }
+
 bool Rectangle::isNegative() {
-	return this->width < 0 || this->length< 0 || this->x < 0 || this->y < 0;
+	return this->width < 0 || this->length < 0 || this->x < 0 || this->y < 0;
+}
+
+bool Rectangle::operator== (Rectangle r) {
+	if (this->length == r.length && \
+		this->width == r.width && \
+		this->x == r.x && \
+		this->y == r.y) {
+		return true;
+	} else {
+		return false;
+	}
 }
