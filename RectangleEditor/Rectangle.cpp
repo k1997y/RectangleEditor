@@ -19,7 +19,7 @@ Rectangle::Rectangle(int length, int width, int x, int y):
 }
 
 void Rectangle::showRectAttribute() {
-	std::cout << "縦幅：" << length << ", 横幅：" << width << ", 左上x座標：" << x << ", 左上y座標：" << y << std::endl << std::endl;
+	std::cout << "縦幅：" << length << ", 横幅：" << width << ", x座標：" << x << ", y座標：" << y << std::endl << std::endl;
 }
 
 bool Rectangle::isSegment() {

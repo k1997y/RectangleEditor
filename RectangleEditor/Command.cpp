@@ -19,7 +19,6 @@ void Command::createCmd() {
 	std::cin >> y;
 
 	Rectangle *r = new Rectangle(l, w, x, y);
-	//board.getRectList().push_back(*r);
 	board.onBoardRect.push_back(*r);
 }
 
