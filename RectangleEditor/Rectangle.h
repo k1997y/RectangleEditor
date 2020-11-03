@@ -3,6 +3,7 @@
 
 class Rectangle {
 public:
+	//TODO: 点，線分，無は長方形とはみなさない
 	Rectangle();
 	Rectangle(int length, int width, int x, int y, int color);
 	Rectangle(int length, int width, int x, int y);
