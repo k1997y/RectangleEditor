@@ -1,14 +1,22 @@
 #pragma once
+#include<iostream>
+
 class Rectangle {
-private:
-	int width;
-	int height;
-	int x;
-	int y;
-	int color;
+	//TODO: width, height‚ªBoard‚Å‚Ílength, width‚È‚Ì‚Å“ˆê
 public:
-	Rectangle(int width, int height, int x, int y, int color);
+	Rectangle();
+	Rectangle(int length,int width,  int x, int y, int color);
+	Rectangle(int length, int width, int x, int y);
+
+	//’·•ûŒ`‚Ì‘®«‚Ì•\¦
+	void showRectAttribute();
 	bool isSegment();
 	bool isPoint();
 	bool isNegative();
+private:
+	int length;
+	int width;
+	int x;
+	int y;
+	int color;
 };

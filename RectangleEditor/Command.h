@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Board.h"
+#include <iostream>
 
 class Command {
 public:
@@ -8,11 +9,14 @@ public:
 	enum command {
 		CREATE = 1,
 		DELETE = 2,
-		EXIT = 3
+		DISPLAY = 3,
+		EXIT = 4
 	};
 
 	void createCmd();
 	void deleteCmd();
+	void displayBoardCmd();
+
 	//exitフラグを立てる
 	void exitMsg();
 

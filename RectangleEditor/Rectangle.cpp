@@ -1,17 +1,33 @@
 #include"Rectangle.h"
-Rectangle::Rectangle(int width, int height, int x, int y, int color) {
+
+Rectangle::Rectangle(){}
+
+Rectangle::Rectangle(int length, int width,  int x, int y, int color) {
+	this->length = length;
 	this->width = width;
-	this->height = height;
 	this->x = x;
 	this->y = y;
 	this->color = color;
 }
+
+Rectangle::Rectangle(int length, int width, int x, int y):
+	length(length),
+	width(width),
+	x(x),
+	y(y)
+{
+}
+
+void Rectangle::showRectAttribute() {
+	std::cout << "縦幅：" << length << ", 横幅：" <<width <<", 左上x座標：" << x << ", 左上y座標：" << y << std::endl;
+}
+
 bool Rectangle::isSegment() {
-	return this->width == 0 && this->height > 0 || this->width > 0 && this->height == 0;
+	return this->width == 0 && this->length > 0 || this->width > 0 && this->length == 0;
 }
 bool Rectangle::isPoint() {
-	return this->width == 0 && this->height == 0;
+	return this->width == 0 && this->length == 0;
 }
 bool Rectangle::isNegative() {
-	return this->width < 0 || this->height < 0 || this->x < 0 || this->y < 0;
+	return this->width < 0 || this->length< 0 || this->x < 0 || this->y < 0;
 }
