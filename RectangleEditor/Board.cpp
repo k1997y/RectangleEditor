@@ -1,7 +1,6 @@
 #include "Board.h"
 
 Board::Board() {
-	onBoardRect.resize(10);		//—v‘f”‚ğ10‚Éİ’è
 }
 
 Board::~Board() {

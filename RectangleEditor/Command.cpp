@@ -19,27 +19,32 @@ void Command::createCmd() {
 	std::cin >> y;
 
 	Rectangle *r = new Rectangle(l, w, x, y);
-	board.getRectList().push_back(*r);
+	//board.getRectList().push_back(*r);
+	board.onBoardRect.push_back(*r);
 }
 
 void Command::deleteCmd() {
 	//TODO: 入力エラー処理
 	int n;
+	displayBoardCmd();
 	std::cout << "ボードから削除したい長方形を選択\n→";
 	std::cin >> n;
 
 	//削除したい長方形にアクセスして削除
 	//TODO: itrが正しい削除番号に到達しているかどうかの確認必要
-	auto itr = board.getRectList().begin();
+	auto itr = board.onBoardRect.begin();
 	for (int i = 0; i < n;i++) {
 		++itr;
 	}
-	board.getRectList().erase(itr);
+	board.onBoardRect.erase(itr);
 }
 
 void Command::displayBoardCmd() {
-	for (auto &r : board.getRectList()) {
+	int i = 0;
+	for (auto &r : board.onBoardRect) {
+		std::cout << i + 1 << ": ";
 		r.showRectAttribute();
+		i++;
 	}
 }
 
