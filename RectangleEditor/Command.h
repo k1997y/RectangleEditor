@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "Board.h"
-#include <iostream>
 
 class Command {
 public:
@@ -19,13 +18,14 @@ public:
 
 	//exitフラグを立てる
 	void exitMsg();
-	//入力処理（エラー処理も行う）
-	int inputInt();
-
+	
 	bool getIsExit() { return isExit; }
 private:
 	Board board;
+
 	//ループを出るか出ないかのフラグ
 	bool isExit;
 
+	//入力処理（エラー処理も行う）
+	int inputInt();
 };

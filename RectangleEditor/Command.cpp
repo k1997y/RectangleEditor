@@ -1,24 +1,26 @@
 #include "Command.h"
+#include <iostream>
+
+using namespace std;
 
 Command::Command() :
 	isExit(false)
-{
-}
+{}
 
 void Command::createCmd() {
 	int l, w, x, y, color;
 
 	//TODO: 入力エラー処理
-	std::cout << "縦幅を入力\n→";
-	std::cin >> l;
-	std::cout << "横幅を入力\n→";
-	std::cin >> w;
-	std::cout << "左上のx座標を入力\n→";
-	std::cin >> x;
-	std::cout << "左上のy座標を入力\n→";
-	std::cin >> y;
-	std::cout << "長方形の色を指定\n1: red\n2: blue\n3: yellow\n4: gray\n対応する色の番号を入力\n→";
-	std::cin >> color;
+	cout << "縦幅を入力\n→";
+	l=inputInt();
+	cout << "横幅を入力\n→";
+	w=inputInt();
+	cout << "左上のx座標を入力\n→";
+	cin >> x;
+	cout << "左上のy座標を入力\n→";
+	cin >> y;
+	cout << "長方形の色を指定\n1: red\n2: blue\n3: yellow\n4: gray\n対応する色の番号を入力\n→";
+	cin >> color;
 
 	Rectangle *r = new Rectangle(l, w, x, y,color);
 	//rがボードに配置できる長方形であるかをチェック
@@ -54,6 +56,22 @@ void Command::exitMsg() {
 	isExit = true;
 }
 
-int inputInt() {
-
+//TODO: 13fのように先に数値が来るとエラーがキャッチされないのでその対処
+int Command::inputInt() {
+	std::cin.exceptions(std::ios::failbit);		//cinの例外処理を有効にする
+	int in;
+	while (true) {
+		try {
+			cin >> in;
+		}
+		//...は全ての例外を受け取る構文
+		catch (...) {
+			cout << "不正な入力です．整数値を入力してください\n→";
+			cin.clear();	//cinの中身を消去
+			cin.seekg(0);		
+			continue;
+		}
+		break;
+	}
+	return in;
 }

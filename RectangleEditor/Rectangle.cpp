@@ -1,4 +1,5 @@
 #include"Rectangle.h"
+#include<iostream>
 
 //Rectangle::Rectangle(int length, int width,  int x, int y, Color color) {
 //	this->length = length;
