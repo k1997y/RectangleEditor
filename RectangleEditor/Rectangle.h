@@ -13,6 +13,18 @@ public:
 	bool isPoint();
 	bool isNegative();
 private:
+	enum Color {
+		RED,
+		BLUE,
+		YELLOW,
+		GRAY,
+		GREEN,
+		ORANGE,
+		MAGENTA,
+		CYAN,
+		WHITE
+	};
+
 	int length;
 	int width;
 	int x;
