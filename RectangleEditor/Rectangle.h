@@ -5,7 +5,7 @@ class Rectangle {
 public:
 	Rectangle();
 	Rectangle(int length,int width,  int x, int y, int color);
-	Rectangle(int length, int width, int x, int y);
+	//Rectangle(int length, int width, int x, int y);
 
 	//’·•ûŒ`‚Ì‘®«‚Ì•\¦
 	void showRectAttribute();
@@ -13,7 +13,7 @@ public:
 	bool isPoint();
 	bool isNegative();
 private:
-	enum Color {
+	/*enum Color {
 		RED,
 		BLUE,
 		YELLOW,
@@ -23,7 +23,7 @@ private:
 		MAGENTA,
 		CYAN,
 		WHITE
-	};
+	};*/
 
 	int length;
 	int width;

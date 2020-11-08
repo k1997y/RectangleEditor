@@ -1,25 +1,24 @@
 #include"Rectangle.h"
 
-Rectangle::Rectangle(){}
+//Rectangle::Rectangle(int length, int width,  int x, int y, Color color) {
+//	this->length = length;
+//	this->width = width;
+//	this->x = x;
+//	this->y = y;
+//	this->color = color;
+//}
 
-Rectangle::Rectangle(int length, int width,  int x, int y, int color) {
-	this->length = length;
-	this->width = width;
-	this->x = x;
-	this->y = y;
-	this->color = color;
-}
-
-Rectangle::Rectangle(int length, int width, int x, int y):
+Rectangle::Rectangle(int length, int width, int x, int y, int color) :
 	length(length),
 	width(width),
 	x(x),
-	y(y)
+	y(y),
+	color(color)
 {
 }
 
 void Rectangle::showRectAttribute() {
-	std::cout << "縦幅：" << length << ", 横幅：" << width << ", 左上x座標：" << x << ", 左上y座標：" << y << std::endl << std::endl;
+	std::cout << "縦幅：" << length << ", 横幅：" << width << ", 左上x座標：" << x << ", 左上y座標：" << y <<", 色："<<color<<std::endl << std::endl;
 }
 
 bool Rectangle::isSegment() {

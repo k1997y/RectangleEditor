@@ -6,7 +6,7 @@ Command::Command() :
 }
 
 void Command::createCmd() {
-	int l, w, x, y;
+	int l, w, x, y, color;
 
 	//TODO: 入力エラー処理
 	std::cout << "縦幅を入力\n→";
@@ -17,9 +17,10 @@ void Command::createCmd() {
 	std::cin >> x;
 	std::cout << "左上のy座標を入力\n→";
 	std::cin >> y;
+	std::cout << "長方形の色を指定\n1: red\n2: blue\n3: yellow\n4: gray\n対応する色の番号を入力\n→";
+	std::cin >> color;
 
-	Rectangle *r = new Rectangle(l, w, x, y);
-	//board.getRectList().push_back(*r);
+	Rectangle *r = new Rectangle(l, w, x, y,color);
 	board.onBoardRect.push_back(*r);
 }
 
