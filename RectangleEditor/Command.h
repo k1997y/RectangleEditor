@@ -19,6 +19,8 @@ public:
 
 	//exitフラグを立てる
 	void exitMsg();
+	//入力処理（エラー処理も行う）
+	int inputInt();
 
 	bool getIsExit() { return isExit; }
 private:

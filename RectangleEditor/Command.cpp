@@ -21,6 +21,8 @@ void Command::createCmd() {
 	std::cin >> color;
 
 	Rectangle *r = new Rectangle(l, w, x, y,color);
+	//rがボードに配置できる長方形であるかをチェック
+
 	board.onBoardRect.push_back(*r);
 }
 
@@ -50,4 +52,8 @@ void Command::displayBoardCmd() {
 
 void Command::exitMsg() {
 	isExit = true;
+}
+
+int inputInt() {
+
 }

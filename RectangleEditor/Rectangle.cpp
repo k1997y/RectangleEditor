@@ -22,7 +22,7 @@ void Rectangle::showRectAttribute() {
 }
 
 bool Rectangle::isSegment() {
-	return this->width == 0 && this->length > 0 || this->width > 0 && this->length == 0;
+	return width == 0 && length > 0 || width > 0 && length == 0;
 }
 bool Rectangle::isPoint() {
 	return this->width == 0 && this->length == 0;
