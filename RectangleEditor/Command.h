@@ -7,18 +7,20 @@ public:
 
 	enum command {
 		CREATE = 1,
-		DELETE = 2,
-		DISPLAY = 3,
-		EXIT = 4
+		INTERSECT=2,
+		DELETE = 3,
+		DISPLAY = 4,
+		EXIT = 5
 	};
 
 	void createCmd();
+	void intersectCmd();
 	void deleteCmd();
 	void displayBoardCmd();
 
 	//exitフラグを立てる
 	void exitMsg();
-	
+
 	bool getIsExit() { return isExit; }
 private:
 	Board board;

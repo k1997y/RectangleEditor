@@ -28,6 +28,10 @@ void Command::createCmd() {
 	board.onBoardRect.push_back(*r);
 }
 
+void Command::intersectCmd() {
+
+}
+
 void Command::deleteCmd() {
 	//TODO: “ü—ÍƒGƒ‰[ˆ—
 	int n;
