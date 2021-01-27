@@ -19,6 +19,10 @@ Rectangle Board::getRect(int i) {
 	return onBoardRects[i - 1];
 }
 
+void Board::deleteRect(int i) {
+	onBoardRects.erase(onBoardRects.begin()+i);
+}
+
 bool Board::isDuplicating(Rectangle r) {
 	for (auto &e : onBoardRects) {
 		if (e == r) {

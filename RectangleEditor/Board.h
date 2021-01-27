@@ -13,6 +13,8 @@ public:
 	int countRects();
 	//指定した長方形を返す
 	Rectangle getRect(int);
+	//指定した長方形の削除
+	void deleteRect(int);
 	//長方形の重複チェック
 	bool isDuplicating(Rectangle r);
 private:
