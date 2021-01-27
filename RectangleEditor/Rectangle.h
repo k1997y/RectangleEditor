@@ -6,17 +6,14 @@ public:
 	//TODO: 点，線分，無は長方形とはみなさない
 	Rectangle(int height, int width, int x, int y, int color);
 
-	//�����`�̑����̕\��
 	void showRectAttribute();
-	//�����`�̑�����z��ŕԂ�
-	int* getAttribute();
-	//�����`�̑�����㏑������D
+	int *getAttribute();
 	void setAttribute(int *);
 	bool isSegment();
 	bool isPoint();
 	bool isNegative();
-
-	//Rectangle�I�u�W�F�N�g���m��==�̋������`
+	
+	//defined comparison operator
 	bool operator==(Rectangle r);
 private:
 	/*enum Color {

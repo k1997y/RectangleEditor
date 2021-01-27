@@ -8,7 +8,6 @@ Command::Command() :
 void Command::createCmd() {
 	int l, w, x, y, color;
 
-	//TODO: ���̓G���[����
 	std::cout << "�c�������\n��";
 	std::cin >> l;
 	std::cout << "���������\n��";
