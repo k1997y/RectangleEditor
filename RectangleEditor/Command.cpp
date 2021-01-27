@@ -1,5 +1,6 @@
 #include "Command.h"
 #include <iostream>
+#include<cmath>
 
 using namespace std;
 
@@ -8,13 +9,13 @@ Command::Command() :
 {}
 
 void Command::createCmd() {
-	int l, w, x, y, color;
+	int w,h, x, y, color;
 
 	//TODO: 入力エラー処理
-	cout << "縦幅を入力\n→";
-	l=inputInt();
 	cout << "横幅を入力\n→";
 	w=inputInt();
+	cout << "縦幅を入力\n→";
+	h=inputInt();
 	cout << "左上のx座標を入力\n→";
 	cin >> x;
 	cout << "左上のy座標を入力\n→";
@@ -22,7 +23,7 @@ void Command::createCmd() {
 	cout << "長方形の色を指定\n1: red\n2: blue\n3: yellow\n4: gray\n対応する色の番号を入力\n→";
 	cin >> color;
 
-	Rectangle *r = new Rectangle(l, w, x, y,color);
+	Rectangle *r = new Rectangle( w,h, x, y,color);
 
 	if (board.isDuplicating(*r)) {
 		std::cout << "Rectangle is duplicated " << std::endl;
@@ -36,11 +37,11 @@ void Command::createCmd() {
 }
 
 void Command::moveCmd() {
-	int i;
+	int n;
 	std::cout << "designate the rectangle you move\n-->";
-	std::cin >> i;
+	std::cin >> n;
 
-	Rectangle r = board.getRect(i-1);
+	Rectangle r = board.getRect(n-1);
 
 	int x, y;
 	std::cout << "input distance to x direction\n-->";
@@ -53,11 +54,36 @@ void Command::moveCmd() {
 	attribute = r.getAttribute();
 	attribute[2] = attribute[2] + x;
 	attribute[3] = attribute[3] + y;
-
 	r.setAttribute(attribute);	
 
-	board.replaceRect(r, i);
-	std::cout << "Rectangle " << i << " has moved\n";
+	board.replaceRect(r, n);
+	std::cout << "Rectangle " << n << " has moved\n";
+	displayBoardCmd();
+}
+
+void Command::expand_shrinkCmd() {
+	int n;
+	std::cout << "designate the rectange you alter\n-->";
+	std::cin >> n;
+
+	Rectangle r = board.getRect(n- 1);
+
+	//拡大縮小率
+	double mx, my;
+	std::cout << "input width scaling rate\n-->";
+	std::cin >> mx;
+	std::cout << "input height scaling rate\n-->";
+	std::cin >> my;
+
+	int *attribute = new int[5];
+
+	attribute = r.getAttribute();
+	attribute[0] = round(attribute[0] * mx);
+	attribute[1] = round(attribute[1] * my);
+	r.setAttribute(attribute);
+
+	board.replaceRect(r, n);
+	std::cout << "Rectangle " << n << " has altered\n";
 	displayBoardCmd();
 }
 
@@ -102,27 +128,31 @@ void Command::exitMsg() {
 * コマンドの説明を出力する関数群
 ************************/
 void Command::createDescription(){
-	cout << CREATE+": create...Generate new rectangle";
+	cout <<CREATE<<": create...Generate new rectangle";
 	cout << endl;
 }
 void Command::moveDescription() {
-	cout << MOVE+": move...Move the designated rectangle";
+	cout << MOVE<<": move...Move the designated rectangle";
+	cout << endl;
+}
+void Command::expand_shrinkDescription() {
+	cout << EXPAND_SHRINK << ": expand/shrink...Alter size of the designated rectangle";
 	cout << endl;
 }
 void Command::intersectDescription() {
-	cout << INTERSECT + ": intersect...Extract new rectangle from range between two rectangle overlapped";
+	cout << INTERSECT << ": intersect...Extract new rectangle from range between two rectangle overlapped";
 	cout << endl;
 }
 void Command:: deleteDescription() {
-	cout << DELETE + ": delete...Delete the designated rectangle";
+	cout << DELETE << ": delete...Delete the designated rectangle";
 	cout << endl;
 }
 void Command::displayBoardDescription() {
-	cout << DISPLAY + ": displayBoard...Display all rectangles on board";
+	cout << DISPLAY << ": displayBoard...Display all rectangles on board";
 	cout << endl;
 }
 void Command::exitDescription() {
-	cout << EXIT + ": exit...terminate this program";
+	cout << EXIT << ": exit...terminate this program";
 	cout << endl;
 }
 

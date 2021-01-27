@@ -1,23 +1,23 @@
 #include"Rectangle.h"
 #include<iostream>
 
-Rectangle::Rectangle(int height, int width, int x, int y, int color) {
-	this->height = height;
+Rectangle::Rectangle(int width, int height, int x, int y, int color) {
 	this->width = width;
+	this->height = height;
 	this->x = x;
 	this->y = y;
 	this->color = color;
 }
 
 void Rectangle::showRectAttribute() {
-	std::cout << "縦幅：" << height << ", 横幅：" << width << ", x座標：" << x << ", y座標：" << y  << ", 色： " << color<<std::endl;
+	std::cout << "横幅：" << width << ", 縦幅：" << height << ", x座標：" << x << ", y座標：" << y  << ", 色： " << color<<std::endl;
 }
 
 int* Rectangle::getAttribute() {
 	int *attribute = new int[5];
 
-	attribute[0] = this->height;
-	attribute[1] = this->width;
+	attribute[0] = this->width;
+	attribute[1] = this->height;
 	attribute[2] = this->x;
 	attribute[3] = this->y;
 	attribute[4] = this->color;
@@ -26,8 +26,8 @@ int* Rectangle::getAttribute() {
 }
 
 void Rectangle::setAttribute(int *attribute) {
-	this->height = attribute[0];
-	this->width = attribute[1];
+	this->width = attribute[0];
+	this->height = attribute[1];
 	this->x = attribute[2];
 	this->y = attribute[3];
 	this->color = attribute[4];
@@ -46,8 +46,8 @@ bool Rectangle::isNegative() {
 }
 
 bool Rectangle::operator== (Rectangle r) {
-	if (this->height == r.height && \
-		this->width == r.width && \
+	if (this->width == r.width && \
+		this->height == r.height && \
 		this->x == r.x && \
 		this->y == r.y) {
 		return true;
