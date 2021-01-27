@@ -1,4 +1,4 @@
-#include "Command.h"
+ï»¿#include "Command.h"
 
 Command::Command() :
 	isExit(false)
@@ -8,45 +8,86 @@ Command::Command() :
 void Command::createCmd() {
 	int l, w, x, y, color;
 
-	//TODO: “ü—ÍƒGƒ‰[ˆ—
-	std::cout << "c•‚ğ“ü—Í\n¨";
+	//TODO: ï¿½ï¿½ï¿½ÍƒGï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
+	std::cout << "ï¿½cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
 	std::cin >> l;
-	std::cout << "‰¡•‚ğ“ü—Í\n¨";
+	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
 	std::cin >> w;
-	std::cout << "¶ã‚ÌxÀ•W‚ğ“ü—Í\n¨";
+	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
 	std::cin >> x;
-	std::cout << "¶ã‚ÌyÀ•W‚ğ“ü—Í\n¨";
+	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
 	std::cin >> y;
-	std::cout << "’·•ûŒ`‚ÌF‚ğw’è\n1: red\n2: blue\n3: yellow\n4: gray\n‘Î‰‚·‚éF‚Ì”Ô†‚ğ“ü—Í\n¨";
+	std::cout << "è‰²ã‚’å…¥åŠ›\n(1: red, 2: blue, 3: yellow, 4: gray)\n-->";
 	std::cin >> color;
 
 	Rectangle *r = new Rectangle(l, w, x, y,color);
-	//r‚ªƒ{[ƒh‚É”z’u‚Å‚«‚é’·•ûŒ`‚Å‚ ‚é‚©‚ğƒ`ƒFƒbƒN
 
-	board.onBoardRect.push_back(*r);
+	//é‡è¤‡ãŒãªãï¼Œå€‹æ•°ãŒ10å€‹æœªæº€ã§ã‚ã‚Œã°push
+	if (board.isDuplicating(*r)) {
+		std::cout << "æ—¢ã«åŒã˜é•·æ–¹å½¢ãŒå­˜åœ¨ã—ã¦ã„ã¾ã™\n" << std::endl;
+	} else if (board.countRects() >= 10) {
+		std::cout << "ãƒœãƒ¼ãƒ‰ä¸Šã®é•·æ–¹å½¢ãŒæœ€å¤§å€‹æ•°ã‚’è¶…ãˆã¦ã„ã¾ã™" << std::endl;
+	} else {
+		board.addRect(*r);
+		std::cout << "æŒ‡å®šã•ã‚ŒãŸå€¤ã®é•·æ–¹å½¢ã‚’ä½œæˆã—ã¾ã—ãŸ" << std::endl;
+		displayBoardCmd();
+	}
+}
+
+//é¸æŠã—ãŸé•·æ–¹å½¢ã‚’æŒ‡å®šåˆ†ã ã‘ç§»å‹•
+void Command::moveCmd() {
+	int i;
+	std::cout << "é•·æ–¹å½¢ã‚’é¸æŠ\n-->";
+	std::cin >> i;
+
+	Rectangle r = board.getRect(i-1);
+
+	int x, y;
+	std::cout << "xæ–¹å‘ã®ç§»å‹•è·é›¢\n-->";
+	std::cin >> x;
+	std::cout << "yæ–¹å‘ã®ç§»å‹•è·é›¢\n-->";
+	std::cin >> y;
+
+	int *attribute = new int[5];
+
+	attribute = r.getAttribute();
+	attribute[2] = attribute[2] + x;
+	attribute[3] = attribute[3] + y;
+
+	r.setAttribute(attribute);	
+
+	board.replaceRect(r, i);
+	std::cout << "é•·æ–¹å½¢" << i << "ã‚’æŒ‡å®šè·é›¢åˆ†ç§»å‹•ã—ã¾ã—ãŸ\n";
+	displayBoardCmd();
 }
 
 void Command::deleteCmd() {
-	//TODO: “ü—ÍƒGƒ‰[ˆ—
+	//TODO: ï¿½ï¿½ï¿½ÍƒGï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 	int n;
+	if (board.countRects() == 0) {
+		std::cout << "ï¿½{ï¿½[ï¿½hï¿½ï¿½É’ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½" << std::endl;
+		return;
+	}
+
 	displayBoardCmd();
-	std::cout << "ƒ{[ƒh‚©‚çíœ‚µ‚½‚¢’·•ûŒ`‚ğ‘I‘ğ\n¨";
+	std::cout << "ï¿½{ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½Iï¿½ï¿½\nï¿½ï¿½";
 	std::cin >> n;
 
-	//íœ‚µ‚½‚¢’·•ûŒ`‚ÉƒAƒNƒZƒX‚µ‚Äíœ
-	auto itr = board.onBoardRect.begin();
-	for (int i = 0; i < n;i++) {
-		++itr;
-	}
-	board.onBoardRect.erase(itr);
+	board.deleteRect(n);
+	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½`" << n << "ï¿½ï¿½íœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½" << std::endl;
+	displayBoardCmd();
 }
 
 void Command::displayBoardCmd() {
-	int i = 0;
-	for (auto &r : board.onBoardRect) {
-		std::cout << i + 1 << ": ";
-		r.showRectAttribute();
-		i++;
+	if (board.countRects() == 0) {
+		std::cout << "ï¿½{ï¿½[ï¿½hï¿½ï¿½É’ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½" << std::endl;
+	} else {
+		for (int i = 0; i < board.countRects(); i++) {
+			Rectangle r = board.getRect(i);
+			std::cout << i + 1 << ": ";
+			r.showRectAttribute();
+		}
+		std::cout << std::endl;
 	}
 }
 
