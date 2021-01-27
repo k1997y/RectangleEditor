@@ -67,22 +67,18 @@ void Command::deleteCmd() {
 	std::cout << "ボードから削除したい長方形を選択\n→";
 	std::cin >> n;
 
-	//削除したい長方形にアクセスして削除
-	auto itr = board.onBoardRects.begin();
-	for (int i = 0; i < n-1;i++) {
-		++itr;
-	}
-	board.onBoardRects.erase(itr);
+	board.deleteRect(n);
 	std::cout << "長方形" << n << "を削除しました" << std::endl;
 	displayBoardCmd();
 }
 
 void Command::displayBoardCmd() {
 	int i = 0;
-	if (board.onBoardRects.size() == 0) {
+	if (board.countRects() == 0) {
 		std::cout << "ボード上に長方形がありません" << std::endl;
 	} else {
-		for (auto &r : board.onBoardRects) {
+		for (int i = 0; i < board.countRects();i++) {
+			Rectangle r = board.getRect(i);
 			std::cout << i + 1 << ": ";
 			r.showRectAttribute();
 			i++;
