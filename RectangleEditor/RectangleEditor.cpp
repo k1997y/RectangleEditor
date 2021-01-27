@@ -1,8 +1,6 @@
 #include "Command.h"
 #include <iostream>
 
-int input();
-
 int main(int argc, char **argv) {
 	Command cmd;
 	int cmdNum = 0;	//入力されたコマンド値を格納する変数
