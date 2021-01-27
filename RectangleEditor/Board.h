@@ -7,6 +7,8 @@ public:
 	Board();
 	~Board();
 
+	//長方形を追加
+	void addRect(Rectangle r);
 	//長方形の重複チェック
 	bool isDuplicating(Rectangle r);
 private:
