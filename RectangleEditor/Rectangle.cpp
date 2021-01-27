@@ -1,7 +1,5 @@
 #include"Rectangle.h"
 
-Rectangle::Rectangle() {}
-
 Rectangle::Rectangle(int height, int width, int x, int y, int color) {
 	this->height = height;
 	this->width = width;
@@ -10,25 +8,20 @@ Rectangle::Rectangle(int height, int width, int x, int y, int color) {
 	this->color = color;
 }
 
-Rectangle::Rectangle(int height, int width, int x, int y) :
-	height(height),
-	width(width),
-	x(x),
-	y(y)
-{
-}
-
 void Rectangle::showRectAttribute() {
-	std::cout << "縦幅：" << height << ", 横幅：" << width << ", x座標：" << x << ", y座標：" << y  << std::endl;
+	std::cout << "縦幅：" << height << ", 横幅：" << width << ", x座標：" << x << ", y座標：" << y  << ", 色： " << color<<std::endl;
 }
 
 int* Rectangle::getAttribute() {
-	int attribute[5];
+	int *attribute = new int[5];
+
 	attribute[0] = this->height;
 	attribute[1] = this->width;
 	attribute[2] = this->x;
 	attribute[3] = this->y;
 	attribute[4] = this->color;
+
+	return attribute;
 }
 
 void Rectangle::setAttribute(int *attribute) {

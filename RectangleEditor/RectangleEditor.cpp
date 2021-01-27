@@ -8,8 +8,8 @@ int main(int argc, char **argv) {
 	int cmdNum = 0;	//入力されたコマンド値を格納する変数
 
 	while (!cmd.getIsExit()) {
-		std::cout<<std::endl << "コマンドを入力\n";
-		std::cout << "1: create...新たな長方形を生成\n2: delete...選択した長方形を削除\n3: displayBoard...ボード上の長方形を表示\n4: exit...プログラムの終了\n→";
+		std::cout<< "コマンドを入力\n";
+		std::cout << "1: create...新たな長方形を生成\n2: move...選択した長方形を指定分移動\n3: delete...選択した長方形を削除\n4: displayBoard...ボード上の長方形を表示\n5: exit...プログラムの終了\n→";
 		std::cin >> cmdNum;
 
 		switch (cmdNum) {
@@ -34,9 +34,4 @@ int main(int argc, char **argv) {
 		}
 	}
 	return 0;
-}
-
-//intの入力関数
-int input() {
-	
 }

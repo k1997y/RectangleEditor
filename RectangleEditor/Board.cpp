@@ -21,7 +21,7 @@ int Board::countRects() {
 }
 
 Rectangle Board::getRect(int i) {
-	return onBoardRects[i - 1];
+	return onBoardRects[i];
 }
 
 void Board::deleteRect(int i) {

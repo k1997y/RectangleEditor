@@ -4,9 +4,7 @@
 class Rectangle {
 public:
 	//TODO: 点，線分，無は長方形とはみなさない
-	Rectangle();
 	Rectangle(int height, int width, int x, int y, int color);
-	Rectangle(int height, int width, int x, int y);
 
 	//長方形の属性の表示
 	void showRectAttribute();
