@@ -23,10 +23,10 @@ void Command::createCmd() {
 	//重複がなく，個数が10個未満であればpush
 	if (board.isDuplicating(*r)) {
 		std::cout << "既に同じ長方形が存在しています\n" << std::endl;
-	} else if (board.onBoardRect.size()>=10) {
+	} else if (board.onBoardRects.size()>=10) {
 		std::cout << "ボード上の長方形が最大個数を超えています" << std::endl;
 	}else {
-		board.onBoardRect.push_back(*r);
+		board.addRect(*r);
 		std::cout << "指定された値の長方形を作成しました" << std::endl;
 		displayBoardCmd();
 	}
@@ -58,7 +58,7 @@ void Command::moveCmd() {
 void Command::deleteCmd() {
 	//TODO: 入力エラー処理
 	int n;
-	if (board.onBoardRect.size() == 0) {
+	if (board.onBoardRects.size() == 0) {
 		std::cout << "ボード上に長方形がありません" << std::endl;
 		return;
 	}
@@ -68,21 +68,21 @@ void Command::deleteCmd() {
 	std::cin >> n;
 
 	//削除したい長方形にアクセスして削除
-	auto itr = board.onBoardRect.begin();
+	auto itr = board.onBoardRects.begin();
 	for (int i = 0; i < n-1;i++) {
 		++itr;
 	}
-	board.onBoardRect.erase(itr);
+	board.onBoardRects.erase(itr);
 	std::cout << "長方形" << n << "を削除しました" << std::endl;
 	displayBoardCmd();
 }
 
 void Command::displayBoardCmd() {
 	int i = 0;
-	if (board.onBoardRect.size() == 0) {
+	if (board.onBoardRects.size() == 0) {
 		std::cout << "ボード上に長方形がありません" << std::endl;
 	} else {
-		for (auto &r : board.onBoardRect) {
+		for (auto &r : board.onBoardRects) {
 			std::cout << i + 1 << ": ";
 			r.showRectAttribute();
 			i++;

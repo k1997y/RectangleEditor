@@ -4,15 +4,15 @@ Board::Board() {
 }
 
 Board::~Board() {
-	onBoardRect.~vector();		//リストの全ての要素をdelete
+	onBoardRects.~vector();		//リストの全ての要素をdelete
 }
 
 void Board::addRect(Rectangle r) {
-	onBoardRect.push_back(r);
+	onBoardRects.push_back(r);
 }
 
 bool Board::isDuplicating(Rectangle r) {
-	for (auto &e : onBoardRect) {
+	for (auto &e : onBoardRects) {
 		if (e == r) {
 			return true;
 		}

@@ -9,6 +9,8 @@ public:
 
 	//長方形を追加
 	void addRect(Rectangle r);
+	//長方形の個数を返す
+	int countRects
 	//長方形の重複チェック
 	bool isDuplicating(Rectangle r);
 private:
@@ -16,5 +18,5 @@ private:
 	const int WIDTH = 400;		//横
 
 	//長方形をリストで持つ
-	std::vector<Rectangle> onBoardRect;
+	std::vector<Rectangle> onBoardRects;
 };
