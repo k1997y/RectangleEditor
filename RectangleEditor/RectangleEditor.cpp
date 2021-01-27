@@ -9,7 +9,15 @@ int main(int argc, char **argv) {
 
 	while (!cmd.getIsExit()) {
 		std::cout<< "コマンドを入力\n";
-		std::cout << "1: create...新たな長方形を生成\n2: move...選択した長方形を指定分移動\n3: delete...選択した長方形を削除\n4: displayBoard...ボード上の長方形を表示\n5: exit...プログラムの終了\n→";
+		
+		//コマンドの説明
+		cmd.createDescription();
+		cmd.moveDescription();
+		cmd.intersectDescription();
+		cmd.deleteDescription();
+		cmd.displayBoardDescription();
+		cmd.exitDescription();
+
 		std::cin >> cmdNum;
 
 		switch (cmdNum) {
@@ -18,6 +26,9 @@ int main(int argc, char **argv) {
 				break;
 			case cmd.MOVE:
 				cmd.moveCmd();
+				break;
+			case cmd.EXPAND_SHRINK:
+				cmd.expand_shrinkCmd();
 				break;
 			case cmd.INTERSECT:
 				cmd.intersectCmd();

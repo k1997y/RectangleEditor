@@ -61,6 +61,10 @@ void Command::moveCmd() {
 	displayBoardCmd();
 }
 
+void Command::expand_shrinkCmd() {
+	
+}
+
 void Command::intersectCmd() {
 
 }
@@ -107,6 +111,10 @@ void Command::createDescription(){
 }
 void Command::moveDescription() {
 	cout << MOVE+": move...Move the designated rectangle";
+	cout << endl;
+}
+void Command::expand_shrinkDescription() {
+	cout << EXPAND_SHRINK + ": expand/shrink...Alter size of the designated rectangle";
 	cout << endl;
 }
 void Command::intersectDescription() {
