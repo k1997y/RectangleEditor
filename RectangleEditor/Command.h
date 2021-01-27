@@ -11,8 +11,9 @@ public:
 		EXPAND_SHRINK=3,
 		INTERSECT =4,
 		DELETE = 5,
-		DISPLAY = 6,
-		EXIT = 7
+		DELETEALL = 6,
+		DISPLAY = 7,
+		EXIT = 8
 	};
 
 	void createCmd();
@@ -20,6 +21,7 @@ public:
 	void expand_shrinkCmd();
 	void intersectCmd();
 	void deleteCmd();
+	void deleteAllCmd();
 	void displayBoardCmd();
 
 	//exitフラグを立てる
@@ -31,6 +33,7 @@ public:
 	void expand_shrinkDescription();
 	void intersectDescription();
 	void deleteDescription();
+	void deleteAllDescription();
 	void displayBoardDescription();
 	void exitDescription();
 

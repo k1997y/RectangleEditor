@@ -28,6 +28,10 @@ void Board::deleteRect(int i) {
 	onBoardRects.erase(onBoardRects.begin()+i);
 }
 
+void Board::clearBoard() {
+	onBoardRects.clear();
+}
+
 bool Board::isDuplicating(Rectangle r) {
 	for (auto &e : onBoardRects) {
 		if (e == r) {

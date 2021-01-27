@@ -17,6 +17,8 @@ public:
 	Rectangle getRect(int);
 	//指定した長方形の削除
 	void deleteRect(int);
+	//ボードのクリア
+	void clearBoard();
 	//長方形の重複チェック
 	bool isDuplicating(Rectangle r);
 private:

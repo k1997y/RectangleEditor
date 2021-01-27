@@ -107,6 +107,15 @@ void Command::deleteCmd() {
 	displayBoardCmd();
 }
 
+void Command::deleteAllCmd() {
+	if (board.countRects() == 0) {
+		std::cout << "There are no rectangles on board" << std::endl;
+		return;
+	}
+	board.clearBoard();
+	std::cout << "All rectangles are deleted\n";
+}
+
 void Command::displayBoardCmd() {
 	if (board.countRects() == 0) {
 		std::cout << "There are no rectangles on board" << std::endl;
@@ -145,6 +154,10 @@ void Command::intersectDescription() {
 }
 void Command:: deleteDescription() {
 	cout << DELETE << ": delete...Delete the designated rectangle";
+	cout << endl;
+}
+void Command::deleteAllDescription() {
+	cout << DELETEALL << ": deleteAll...Clear board";
 	cout << endl;
 }
 void Command::displayBoardDescription() {

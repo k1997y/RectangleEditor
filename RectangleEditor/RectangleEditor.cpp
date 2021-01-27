@@ -16,8 +16,10 @@ int main(int argc, char **argv) {
 		cmd.expand_shrinkDescription();
 		cmd.intersectDescription();
 		cmd.deleteDescription();
+		cmd.deleteAllDescription();
 		cmd.displayBoardDescription();
 		cmd.exitDescription();
+		std::cout << "-->";
 
 		std::cin >> cmdNum;
 
@@ -36,6 +38,9 @@ int main(int argc, char **argv) {
 				break;
 			case cmd.DELETE:
 				cmd.deleteCmd();
+				break;
+			case cmd.DELETEALL:
+				cmd.deleteAllCmd();
 				break;
 			case cmd.DISPLAY:
 				cmd.displayBoardCmd();
