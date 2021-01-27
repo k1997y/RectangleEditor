@@ -19,6 +19,9 @@ int main(int argc, char **argv) {
 			case cmd.MOVE:
 				cmd.moveCmd();
 				break;
+			case cmd.INTERSECT:
+				cmd.intersectCmd();
+				break;
 			case cmd.DELETE:
 				cmd.deleteCmd();
 				break;

@@ -8,7 +8,7 @@ public:
 	enum command {
 		CREATE = 1,
 		MOVE =2,
-		INTERSECT =3
+		INTERSECT =3,
 		DELETE = 4,
 		DISPLAY = 5,
 		EXIT = 6
@@ -22,6 +22,14 @@ public:
 
 	//exitフラグを立てる
 	void exitMsg();
+
+	//以下コマンドの説明を出力する関数
+	void createDescription();
+	void moveDescription();
+	void intersectDescription();
+	void deleteDescription();
+	void displayBoardDescription();
+	void exitDescription();
 
 	bool getIsExit() { return isExit; }
 private:

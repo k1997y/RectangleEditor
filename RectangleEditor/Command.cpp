@@ -1,4 +1,4 @@
-ï»¿#include "Command.h"
+#include "Command.h"
 #include <iostream>
 
 using namespace std;
@@ -10,43 +10,42 @@ Command::Command() :
 void Command::createCmd() {
 	int l, w, x, y, color;
 
-	std::cout << "ï¿½cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
-	std::cin >> l;
-	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
-	std::cin >> w;
-	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
-	std::cin >> x;
-	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½yï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½\nï¿½ï¿½";
-	std::cin >> y;
-	std::cout << "è‰²ã‚’å…¥åŠ›\n(1: red, 2: blue, 3: yellow, 4: gray)\n-->";
-	std::cin >> color;
+	//TODO: “ü—ÍƒGƒ‰[ˆ—
+	cout << "c•‚ğ“ü—Í\n¨";
+	l=inputInt();
+	cout << "‰¡•‚ğ“ü—Í\n¨";
+	w=inputInt();
+	cout << "¶ã‚ÌxÀ•W‚ğ“ü—Í\n¨";
+	cin >> x;
+	cout << "¶ã‚ÌyÀ•W‚ğ“ü—Í\n¨";
+	cin >> y;
+	cout << "’·•ûŒ`‚ÌF‚ğw’è\n1: red\n2: blue\n3: yellow\n4: gray\n‘Î‰‚·‚éF‚Ì”Ô†‚ğ“ü—Í\n¨";
+	cin >> color;
 
 	Rectangle *r = new Rectangle(l, w, x, y,color);
 
-	//é‡è¤‡ãŒãªãï¼Œå€‹æ•°ãŒ10å€‹æœªæº€ã§ã‚ã‚Œã°push
 	if (board.isDuplicating(*r)) {
-		std::cout << "æ—¢ã«åŒã˜é•·æ–¹å½¢ãŒå­˜åœ¨ã—ã¦ã„ã¾ã™\n" << std::endl;
+		std::cout << "Rectangle is duplicated " << std::endl;
 	} else if (board.countRects() >= 10) {
-		std::cout << "ãƒœãƒ¼ãƒ‰ä¸Šã®é•·æ–¹å½¢ãŒæœ€å¤§å€‹æ•°ã‚’è¶…ãˆã¦ã„ã¾ã™" << std::endl;
+		std::cout<<"You cannot add more.Board cannot accept > 10 rectangles "<< std::endl;
 	} else {
 		board.addRect(*r);
-		std::cout << "æŒ‡å®šã•ã‚ŒãŸå€¤ã®é•·æ–¹å½¢ã‚’ä½œæˆã—ã¾ã—ãŸ" << std::endl;
+		std::cout << "Rectangle has been added " << std::endl;
 		displayBoardCmd();
 	}
 }
 
-//é¸æŠã—ãŸé•·æ–¹å½¢ã‚’æŒ‡å®šåˆ†ã ã‘ç§»å‹•
 void Command::moveCmd() {
 	int i;
-	std::cout << "é•·æ–¹å½¢ã‚’é¸æŠ\n-->";
+	std::cout << "designate the rectangle you move\n-->";
 	std::cin >> i;
 
 	Rectangle r = board.getRect(i-1);
 
 	int x, y;
-	std::cout << "xæ–¹å‘ã®ç§»å‹•è·é›¢\n-->";
+	std::cout << "input distance to x direction\n-->";
 	std::cin >> x;
-	std::cout << "yæ–¹å‘ã®ç§»å‹•è·é›¢\n-->";
+	std::cout << "input distance to x direction\n-->";
 	std::cin >> y;
 
 	int *attribute = new int[5];
@@ -58,7 +57,7 @@ void Command::moveCmd() {
 	r.setAttribute(attribute);	
 
 	board.replaceRect(r, i);
-	std::cout << "é•·æ–¹å½¢" << i << "ã‚’æŒ‡å®šè·é›¢åˆ†ç§»å‹•ã—ã¾ã—ãŸ\n";
+	std::cout << "Rectangle " << i << " has moved\n";
 	displayBoardCmd();
 }
 
@@ -67,25 +66,24 @@ void Command::intersectCmd() {
 }
 
 void Command::deleteCmd() {
-	//TODO: ï¿½ï¿½ï¿½ÍƒGï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
 	int n;
 	if (board.countRects() == 0) {
-		std::cout << "ï¿½{ï¿½[ï¿½hï¿½ï¿½É’ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½" << std::endl;
+		std::cout << "There are no rectangles on board" << std::endl;
 		return;
 	}
 
 	displayBoardCmd();
-	std::cout << "ï¿½{ï¿½[ï¿½hï¿½ï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½Iï¿½ï¿½\nï¿½ï¿½";
+	std::cout << "designate the rectangle you delete";
 	std::cin >> n;
 
 	board.deleteRect(n);
-	std::cout << "ï¿½ï¿½ï¿½ï¿½ï¿½`" << n << "ï¿½ï¿½íœï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½" << std::endl;
+	std::cout << "Rectangle you designated has deleted" << std::endl;
 	displayBoardCmd();
 }
 
 void Command::displayBoardCmd() {
 	if (board.countRects() == 0) {
-		std::cout << "ï¿½{ï¿½[ï¿½hï¿½ï¿½É’ï¿½ï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½" << std::endl;
+		std::cout << "There are no rectangles on board" << std::endl;
 	} else {
 		for (int i = 0; i < board.countRects(); i++) {
 			Rectangle r = board.getRect(i);
@@ -100,18 +98,46 @@ void Command::exitMsg() {
 	isExit = true;
 }
 
-//TODO: 13fã®ã‚ˆã†ã«å…ˆã«æ•°å€¤ãŒæ¥ã‚‹ã¨ã‚¨ãƒ©ãƒ¼ãŒã‚­ãƒ£ãƒƒãƒã•ã‚Œãªã„ã®ã§ãã®å¯¾å‡¦
+/************************
+* ƒRƒ}ƒ“ƒh‚Ìà–¾‚ğo—Í‚·‚éŠÖ”ŒQ
+************************/
+void Command::createDescription(){
+	cout << CREATE+": create...Generate new rectangle";
+	cout << endl;
+}
+void Command::moveDescription() {
+	cout << MOVE+": move...Move the designated rectangle";
+	cout << endl;
+}
+void Command::intersectDescription() {
+	cout << INTERSECT + ": intersect...Extract new rectangle from range between two rectangle overlapped";
+	cout << endl;
+}
+void Command:: deleteDescription() {
+	cout << DELETE + ": delete...Delete the designated rectangle";
+	cout << endl;
+}
+void Command::displayBoardDescription() {
+	cout << DISPLAY + ": displayBoard...Display all rectangles on board";
+	cout << endl;
+}
+void Command::exitDescription() {
+	cout << EXIT + ": exit...terminate this program";
+	cout << endl;
+}
+
+//TODO: 13f‚Ì‚æ‚¤‚Éæ‚É”’l‚ª—ˆ‚é‚ÆƒGƒ‰[‚ªƒLƒƒƒbƒ`‚³‚ê‚È‚¢‚Ì‚Å‚»‚Ì‘Îˆ
 int Command::inputInt() {
-	std::cin.exceptions(std::ios::failbit);		//cinã®ä¾‹å¤–å‡¦ç†ã‚’æœ‰åŠ¹ã«ã™ã‚‹
+	std::cin.exceptions(std::ios::failbit);		//cin‚Ì—áŠOˆ—‚ğ—LŒø‚É‚·‚é
 	int in;
 	while (true) {
 		try {
 			cin >> in;
 		}
-		//...ã¯å…¨ã¦ã®ä¾‹å¤–ã‚’å—ã‘å–ã‚‹æ§‹æ–‡
+		//...‚Í‘S‚Ä‚Ì—áŠO‚ğó‚¯æ‚é\•¶
 		catch (...) {
-			cout << "ä¸æ­£ãªå…¥åŠ›ã§ã™ï¼æ•´æ•°å€¤ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„\nâ†’";
-			cin.clear();	//cinã®ä¸­èº«ã‚’æ¶ˆå»
+			cout << "•s³‚È“ü—Í‚Å‚·D®”’l‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢\n¨";
+			cin.clear();	//cin‚Ì’†g‚ğÁ‹
 			cin.seekg(0);		
 			continue;
 		}

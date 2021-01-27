@@ -1,6 +1,5 @@
 ﻿class Rectangle {
 public:
-	//TODO: �_�C�����C���͒����`�Ƃ݂͂Ȃ��Ȃ�
 	Rectangle(int height, int width, int x, int y, int color);
 
 	void showRectAttribute();
