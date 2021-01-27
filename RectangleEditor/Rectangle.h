@@ -1,9 +1,6 @@
-﻿#pragma once
-#include<iostream>
-
-class Rectangle {
+﻿class Rectangle {
 public:
-	//TODO: 点，線分，無は長方形とはみなさない
+	//TODO: �_�C�����C���͒����`�Ƃ݂͂Ȃ��Ȃ�
 	Rectangle(int height, int width, int x, int y, int color);
 
 	void showRectAttribute();

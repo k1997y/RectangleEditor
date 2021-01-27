@@ -1,9 +1,11 @@
 ﻿#include "Command.h"
+#include <iostream>
+
+using namespace std;
 
 Command::Command() :
 	isExit(false)
-{
-}
+{}
 
 void Command::createCmd() {
 	int l, w, x, y, color;
@@ -60,6 +62,10 @@ void Command::moveCmd() {
 	displayBoardCmd();
 }
 
+void Command::intersectCmd() {
+
+}
+
 void Command::deleteCmd() {
 	//TODO: ���̓G���[����
 	int n;
@@ -94,6 +100,22 @@ void Command::exitMsg() {
 	isExit = true;
 }
 
-int inputInt() {
-
+//TODO: 13fのように先に数値が来るとエラーがキャッチされないのでその対処
+int Command::inputInt() {
+	std::cin.exceptions(std::ios::failbit);		//cinの例外処理を有効にする
+	int in;
+	while (true) {
+		try {
+			cin >> in;
+		}
+		//...は全ての例外を受け取る構文
+		catch (...) {
+			cout << "不正な入力です．整数値を入力してください\n→";
+			cin.clear();	//cinの中身を消去
+			cin.seekg(0);		
+			continue;
+		}
+		break;
+	}
+	return in;
 }
