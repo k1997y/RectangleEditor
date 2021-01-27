@@ -11,6 +11,8 @@ public:
 	void addRect(Rectangle r);
 	//長方形の個数を返す
 	int countRects();
+	//指定した長方形を返す
+	Rectangle getRect(int);
 	//長方形の重複チェック
 	bool isDuplicating(Rectangle r);
 private:

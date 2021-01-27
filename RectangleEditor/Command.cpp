@@ -23,7 +23,7 @@ void Command::createCmd() {
 	//重複がなく，個数が10個未満であればpush
 	if (board.isDuplicating(*r)) {
 		std::cout << "既に同じ長方形が存在しています\n" << std::endl;
-	} else if (board.onBoardRects.size()>=10) {
+	} else if (board.countRects()>=10) {
 		std::cout << "ボード上の長方形が最大個数を超えています" << std::endl;
 	}else {
 		board.addRect(*r);
@@ -58,7 +58,7 @@ void Command::moveCmd() {
 void Command::deleteCmd() {
 	//TODO: 入力エラー処理
 	int n;
-	if (board.onBoardRects.size() == 0) {
+	if (board.countRects() == 0) {
 		std::cout << "ボード上に長方形がありません" << std::endl;
 		return;
 	}
