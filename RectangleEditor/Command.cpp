@@ -70,9 +70,9 @@ void Command::expand_shrinkCmd() {
 
 	//Šg‘åk¬—¦
 	double mx, my;
-	std::cout << "input width scaling rate";
+	std::cout << "input width scaling rate\n-->";
 	std::cin >> mx;
-	std::cout << "input height scaling rate";
+	std::cout << "input height scaling rate\n-->";
 	std::cin >> my;
 
 	int *attribute = new int[5];
