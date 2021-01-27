@@ -38,6 +38,8 @@ void Command::moveCmd() {
 	std::cout << "長方形を選択\n-->";
 	std::cin >> i;
 
+	Rectangle r = 
+
 	
 	/*アルゴリズム
 	* １．長方形Rを指定させる
