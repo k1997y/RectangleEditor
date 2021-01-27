@@ -11,6 +11,10 @@ void Board::addRect(Rectangle r) {
 	onBoardRects.push_back(r);
 }
 
+int Board::countRects() {
+	return onBoardRects.size();
+}
+
 bool Board::isDuplicating(Rectangle r) {
 	for (auto &e : onBoardRects) {
 		if (e == r) {

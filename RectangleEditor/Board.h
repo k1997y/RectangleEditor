@@ -10,7 +10,7 @@ public:
 	//長方形を追加
 	void addRect(Rectangle r);
 	//長方形の個数を返す
-	int countRects
+	int countRects();
 	//長方形の重複チェック
 	bool isDuplicating(Rectangle r);
 private:
