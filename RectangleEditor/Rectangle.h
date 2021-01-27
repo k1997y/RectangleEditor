@@ -10,6 +10,7 @@ public:
 
 	//’·•ûŒ`‚Ì‘®«‚Ì•\¦
 	void showRectAttribute();
+	int* getAttribute();
 	bool isSegment();
 	bool isPoint();
 	bool isNegative();

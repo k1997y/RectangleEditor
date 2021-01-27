@@ -22,6 +22,15 @@ void Rectangle::showRectAttribute() {
 	std::cout << "縦幅：" << length << ", 横幅：" << width << ", x座標：" << x << ", y座標：" << y  << std::endl;
 }
 
+int* Rectangle::getAttribute() {
+	int attribute[5];
+	attribute[0] = this->length;
+	attribute[1] = this->width;
+	attribute[2] = this->x;
+	attribute[3] = this->y;
+	attribute[4] = this->color;
+}
+
 bool Rectangle::isSegment() {
 	return this->width == 0 && this->length > 0 || this->width > 0 && this->length == 0;
 }

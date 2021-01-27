@@ -9,6 +9,8 @@ public:
 
 	//長方形を追加
 	void addRect(Rectangle r);
+	//長方形を置換
+	void replaceRect(Rectangle r,int index);
 	//長方形の個数を返す
 	int countRects();
 	//指定した長方形を返す

@@ -11,6 +11,11 @@ void Board::addRect(Rectangle r) {
 	onBoardRects.push_back(r);
 }
 
+//index‚ÌêŠ‚É‘¶İ‚·‚é’·•ûŒ`‚ğr‚Å’uŠ·‚·‚é
+void Board::replaceRect(Rectangle r, int index) {
+	onBoardRects[index - 1] = r;
+}
+
 int Board::countRects() {
 	return onBoardRects.size();
 }

@@ -38,21 +38,16 @@ void Command::moveCmd() {
 	std::cout << "長方形を選択\n-->";
 	std::cin >> i;
 
-	Rectangle r = 
+	Rectangle r = board.getRect(i);
 
-	
-	/*アルゴリズム
-	* １．長方形Rを指定させる
-	* ２．指定した番号の長方形を呼び出す
-	* （C++のListは直接呼び出す関数がない．以下呼び出し方法）
-	* auto itr = board.onBoardRect.begin();
-	   for (int i = 0; i < n-1;i++) {
-	   ++itr;
-	}
-	Rectangle r = *itr;
-	*itrは要素を指すポインタらしい．とにかくこうすればn番目の要素にアクセスできるかと思う
-	* ３．呼び出した長方形のx, y座標を書き換える
-	*/
+	int x, y;
+	std::cout << "x方向の移動距離\n-->";
+	std::cin >> x;
+	std::cout << "y方向の移動距離\n-->";
+	std::cin >> y;
+
+
+	board.replaceRect(r, i);
 }
 
 void Command::deleteCmd() {
