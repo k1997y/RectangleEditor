@@ -46,7 +46,7 @@ void Command::moveCmd() {
 	std::cout << "y•ûŒü‚ÌˆÚ“®‹——£\n-->";
 	std::cin >> y;
 
-
+	int 
 	board.replaceRect(r, i);
 }
 
