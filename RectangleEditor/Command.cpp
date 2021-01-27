@@ -19,6 +19,7 @@ void Command::createCmd() {
 	std::cin >> y;
 
 	Rectangle *r = new Rectangle(l, w, x, y);
+
 	//重複がなく，個数が10個未満であればpush
 	if (board.isDuplicating(*r)) {
 		std::cout << "既に同じ長方形が存在しています\n" << std::endl;
@@ -33,6 +34,11 @@ void Command::createCmd() {
 
 //選択した長方形を指定分だけ移動
 void Command::moveCmd() {
+	int i;
+	std::cout << "長方形を選択\n-->";
+	std::cin >> i;
+
+	
 	/*アルゴリズム
 	* １．長方形Rを指定させる
 	* ２．指定した番号の長方形を呼び出す

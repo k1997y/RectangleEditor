@@ -4,7 +4,7 @@ Board::Board() {
 }
 
 Board::~Board() {
-	onBoardRect.~list();		//リストの全ての要素をdelete
+	onBoardRect.~vector();		//リストの全ての要素をdelete
 }
 
 bool Board::isDuplicating(Rectangle r) {
