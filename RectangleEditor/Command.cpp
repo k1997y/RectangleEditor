@@ -128,31 +128,31 @@ void Command::exitMsg() {
 * コマンドの説明を出力する関数群
 ************************/
 void Command::createDescription(){
-	cout << CREATE+": create...Generate new rectangle";
+	cout <<CREATE<<": create...Generate new rectangle";
 	cout << endl;
 }
 void Command::moveDescription() {
-	cout << MOVE+": move...Move the designated rectangle";
+	cout << MOVE<<": move...Move the designated rectangle";
 	cout << endl;
 }
 void Command::expand_shrinkDescription() {
-	cout << EXPAND_SHRINK + ": expand/shrink...Alter size of the designated rectangle";
+	cout << EXPAND_SHRINK << ": expand/shrink...Alter size of the designated rectangle";
 	cout << endl;
 }
 void Command::intersectDescription() {
-	cout << INTERSECT + ": intersect...Extract new rectangle from range between two rectangle overlapped";
+	cout << INTERSECT << ": intersect...Extract new rectangle from range between two rectangle overlapped";
 	cout << endl;
 }
 void Command:: deleteDescription() {
-	cout << DELETE + ": delete...Delete the designated rectangle";
+	cout << DELETE << ": delete...Delete the designated rectangle";
 	cout << endl;
 }
 void Command::displayBoardDescription() {
-	cout << DISPLAY + ": displayBoard...Display all rectangles on board";
+	cout << DISPLAY << ": displayBoard...Display all rectangles on board";
 	cout << endl;
 }
 void Command::exitDescription() {
-	cout << EXIT + ": exit...terminate this program";
+	cout << EXIT << ": exit...terminate this program";
 	cout << endl;
 }
 

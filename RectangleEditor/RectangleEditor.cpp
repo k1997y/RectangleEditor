@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
 		//ƒRƒ}ƒ“ƒh‚Ìà–¾
 		cmd.createDescription();
 		cmd.moveDescription();
+		cmd.expand_shrinkDescription();
 		cmd.intersectDescription();
 		cmd.deleteDescription();
 		cmd.displayBoardDescription();
