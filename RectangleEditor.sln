@@ -7,7 +7,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RectangleEditor", "Rectangl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RectangleEditorCUITest", "RectangleEditorCUITest\RectangleEditorCUITest.vcxproj", "{A32F8436-4413-4B34-86C1-6592857302DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangleEditor_GUI", "RectangleEditor_GUI\RectangleEditor_GUI.csproj", "{459FC399-0AF3-4031-AE7D-C68A871D1039}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RectangleEditor_GUI", "RectangleEditor_GUI\RectangleEditor_GUI.csproj", "{459FC399-0AF3-4031-AE7D-C68A871D1039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RectangleEditor_CSharp", "RectangleEditor_CSharp\RectangleEditor_CSharp.csproj", "{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,18 @@ Global
 		{459FC399-0AF3-4031-AE7D-C68A871D1039}.Release|x64.Build.0 = Release|Any CPU
 		{459FC399-0AF3-4031-AE7D-C68A871D1039}.Release|x86.ActiveCfg = Release|Any CPU
 		{459FC399-0AF3-4031-AE7D-C68A871D1039}.Release|x86.Build.0 = Release|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Debug|x64.Build.0 = Debug|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Debug|x86.Build.0 = Debug|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Release|x64.ActiveCfg = Release|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Release|x64.Build.0 = Release|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Release|x86.ActiveCfg = Release|Any CPU
+		{FE0C547D-9BF7-462C-A20A-F31CC166B3F0}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

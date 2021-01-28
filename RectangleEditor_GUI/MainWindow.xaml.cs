@@ -13,16 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RectangleEditor_GUI
-{
+namespace RectangleEditor_GUI{
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+    public partial class MainWindow : Window{
+        //ViewModelオブジェクトの生成
+        RectangleEditorViewModel viewModel = new RectangleEditorViewModel();
+
+        public MainWindow(){
             InitializeComponent();
+
+            //データ元の設定
+            DataContext = this.viewModel;
         }
     }
 }
