@@ -4,7 +4,9 @@ using System.Text;
 
 namespace RectangleEditor_CSharp {
 	class Command {
-		public Command() { }
+		public Command() {
+			this.board = new Board();
+		}
 
 		public enum Commands {
 			CREATE,

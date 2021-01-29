@@ -19,7 +19,7 @@ namespace RectangleEditor_CSharp{
 				cmd.displayBoardDescription();
 				cmd.exitDescription();
 
-				Console.WriteLine("-->");
+				Console.Write("-->");
 				cmdNum = int.Parse(Console.ReadLine());
 
 				switch (cmdNum) {
