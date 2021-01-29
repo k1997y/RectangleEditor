@@ -19,7 +19,7 @@ namespace RectangleEditor_CSharp {
 		}
 
 		public void showRectAttribute() {
-			Console.WriteLine("幅: %d, 高さ: %d, x座標: %d, y座標: %d, 色: %d\n", width,height,x,y,color);
+			Console.WriteLine("幅: {0}, 高さ: {1}, x座標: {2}, y座標: {3}, 色: {4}\n", width,height,x,y,color);
 		}
 
 		public int[] getAttribute() {

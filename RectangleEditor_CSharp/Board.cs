@@ -23,7 +23,7 @@ namespace RectangleEditor_CSharp {
 		}
 
 		public Rectangle getRect(int index) {
-			return onBoardRects[i];
+			return onBoardRects[index];
 		}
 
 		public void deleteRect(int index) {
