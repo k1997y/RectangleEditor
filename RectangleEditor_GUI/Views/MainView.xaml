@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RectangleEditor_GUI.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="RectangleEditor" Height="450" Width="800">
+    <StackPanel>
+        <TextBox Text="{Binding InputString}"  />
+        <TextBlock Text="{Binding UpperString}"/>
+        <Button Content="Convert"/>
+    </StackPanel>
 </Window>
