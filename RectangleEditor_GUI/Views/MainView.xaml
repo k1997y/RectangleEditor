@@ -20,18 +20,18 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <Label Content="幅 : " Target="{Binding ElementName=textbox_width}" VerticalAlignment="Center"/>
-            <TextBox x:Name="textbox_width" TextWrapping="Wrap" Width="35" VerticalAlignment="Center"/>
+            <TextBox x:Name="textbox_width" TextWrapping="Wrap" Width="35" VerticalAlignment="Center" Text="{Binding Width}"/>
             <Label Content="高さ : " Target="{Binding ElementName=textbox_height}" VerticalAlignment="Center"/>
-            <TextBox x:Name="textbox_height" TextWrapping="Wrap" Width="35" VerticalAlignment="Center"/>
+            <TextBox x:Name="textbox_height" TextWrapping="Wrap" Width="35" VerticalAlignment="Center" Text="{Binding Height}"/>
             <Label Content="x : " Target="{Binding ElementName=textbox_x}" VerticalAlignment="Center"/>
-            <TextBox x:Name="textbox_x" TextWrapping="Wrap" Width="35" VerticalAlignment="Center"/>
+            <TextBox x:Name="textbox_x" TextWrapping="Wrap" Width="35" VerticalAlignment="Center" Text="{Binding X}"/>
             <Label Content="y : " Target="{Binding ElementName=textbox_y}" VerticalAlignment="Center"/>
-            <TextBox x:Name="textbox_y" TextWrapping="Wrap" Width="35" VerticalAlignment="Center"/>
-            <RadioButton Content="red" VerticalAlignment="Center" Margin ="30,0,0,0"/>
-            <RadioButton Content="blue" VerticalAlignment="Center" Margin ="5,0,0,0"/>
-            <RadioButton Content="yellow" VerticalAlignment="Center" Margin ="10,0,0,0"/>
-            <RadioButton Content="green" VerticalAlignment="Center" Margin ="10,0,0,0"/>
-            <Button Content="create" VerticalAlignment="Center" Margin ="25,0,0,0"/>
+            <TextBox x:Name="textbox_y" TextWrapping="Wrap" Width="35" VerticalAlignment="Center" Text="{Binding Y}"/>
+            <RadioButton Content="red" VerticalAlignment="Center" Margin ="30,0,0,0" Checked="ColorChecked"/>
+            <RadioButton Content="blue" VerticalAlignment="Center" Margin ="5,0,0,0" Checked="ColorChecked"/>
+            <RadioButton Content="yellow" VerticalAlignment="Center" Margin ="10,0,0,0" Checked="ColorChecked"/>
+            <RadioButton Content="green" VerticalAlignment="Center" Margin ="10,0,0,0" Checked="ColorChecked"/>
+            <Button Content="create" VerticalAlignment="Center" Margin ="25,0,0,0" Command="{Binding CreateCommand}"/>
         </StackPanel>
         <Canvas Grid.Row="2" Grid.Column="1">
                 

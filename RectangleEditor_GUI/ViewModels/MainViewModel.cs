@@ -10,30 +10,52 @@ namespace RectangleEditor_GUI.ViewModels {
 	/// MainViewウィンドウに対するデータコンテキストを表す
 	/// </summary>
 	internal class MainViewModel : NotificationObject {
-		private string _upperString;
-		/// <summary>
-		/// 全て大文字に変換した文字列を取得する
-		/// </summary>
-		public string UpperString {
-			get { return this._upperString; }
-			private set { SetProperty(ref this._upperString, value); }
+		private string _width;
+		public string Width {
+			get { return this._width; }
+			set {
+				SetProperty(ref this._width, value);
+			}
 		}
 
-		private string _inputString;
-		/// <summary>
-		/// 入力文字列を取得または設定する
-		/// </summary>
-		public string InputString {
-			get { return this._inputString; }
+		private string _height;
+		public string Height {
+			get { return this._height; }
 			set {
-				if (SetProperty(ref this._inputString, value)) {
-					//入力文字列を大文字に変換
-					this.UpperString = this._inputString.ToUpper();
-
-					//出力ウィンドウに結果表示
-					System.Diagnostics.Debug.WriteLine(this._inputString);
-				}
+				SetProperty(ref this._height, value);
 			}
+		}
+
+		private string _x;
+		public string X {
+			get { return this._x; }
+			set {
+				SetProperty(ref this._x, value);
+			}
+		}
+
+		private string _y;
+		public string Y {
+			get { return this._y; }
+			set {
+				SetProperty(ref this._y, value);
+			}
+		}
+
+
+
+		//createコマンドを取得する
+		private DelegateCommand _createCommand;
+		public DelegateCommand CreateCommand {
+			get {
+				return this._createCommand ?? (this._createCommand = new DelegateCommand(
+					_ => {
+						onCreate();
+					}));
+			}
+		}
+		private void onCreate() {
+			throw new NotImplementedException();
 		}
 	}
 }
