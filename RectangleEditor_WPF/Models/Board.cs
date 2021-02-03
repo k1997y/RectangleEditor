@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RectangleEditor_GUI.Models {
+namespace RectangleEditor_WPF.Models {
 	public class Board {
 		public Board() {
 			onBoardRects = new List<Rectangle>();

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RectangleEditor_CSharp {
-	class Command {
+namespace RectangleEditor_GUI.Models {
+	public class Command {
+
 		public Command() {
 			this.board = new Board();
 		}
@@ -19,21 +20,8 @@ namespace RectangleEditor_CSharp {
 			EXIT
 		};
 
-		public void createCmd() {
-			int w, h, x, y, color;
-
-			Console.Write("横幅を入力\n-->");
-			w = inputInt();
-			Console.Write("縦幅を入力\n-->");
-			h = inputInt();
-			Console.Write("左上のx座標を入力\n-->");
-			x = inputInt();
-			Console.Write("左上のy座標を入力\n-->");
-			y = inputInt();
-			Console.Write("長方形の色を指定\n1: red\n2: blue\n3: yellow\n4: gray\n対応する色の番号を入力\n-->");
-			color = inputInt();
-
-			Rectangle r = new Rectangle(w, h, x, y, color);
+		public void createCmd(int width,int height,int x,int y,int color) {
+			Rectangle r = new Rectangle(width, height, x, y, color);
 
 			if (board.isDuplicating(r)) {
 				Console.Write("長方形が重複しています\n");
@@ -41,8 +29,6 @@ namespace RectangleEditor_CSharp {
 				Console.Write("10個以上の長方形を配置することができません\n");
 			} else {
 				board.addRect(r);
-				Console.Write("長方形がボード上に配置されました\n");
-				displayBoardCmd();
 			}
 		}
 
@@ -167,6 +153,9 @@ namespace RectangleEditor_CSharp {
 		}
 
 		private Board board;
+		public Board GetBoard {
+			get { return board; }
+		}
 
 		//ループを出るか出ないかのフラグ
 		public bool isExit { get; set; }

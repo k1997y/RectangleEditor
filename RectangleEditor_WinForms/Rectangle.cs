@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RectangleEditor_GUI.Models {
+namespace RectangleEditor_WinForms {
 	public class Rectangle {
 		public int Width { get; set; }
 		public int Height { get; set; }
@@ -16,30 +16,6 @@ namespace RectangleEditor_GUI.Models {
 			this.X = x;
 			this.Y = y;
 			this.Color = color;
-		}
-
-		public void showRectAttribute() {
-			Console.Write("幅: {0}, 高さ: {1}, x座標: {2}, y座標: {3}, 色: {4}\n", Width, Height, X, Y, Color);
-		}
-
-		public int[] getAttribute() {
-			int[] attribute = new int[5];
-
-			attribute[0] = this.Width;
-			attribute[1] = this.Height;
-			attribute[2] = this.X;
-			attribute[3] = this.Y;
-			attribute[4] = this.Color;
-
-			return attribute;
-		}
-
-		public void setAttribute(int[] attribute) {
-			this.Width = attribute[0];
-			this.Height = attribute[1];
-			this.X = attribute[2];
-			this.Y = attribute[3];
-			this.Color = attribute[4];
 		}
 
 		public bool isSegment() {
