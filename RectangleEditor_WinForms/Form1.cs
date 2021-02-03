@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace RectangleEditor_WinForms {
 	public partial class Form1 : Form {
 		Command command;
+		RectangleEditor_WinForms.Rectangle selectedRect;	//クリックで選択された長方形
 
 		public Form1() {
 			InitializeComponent();
@@ -88,6 +89,21 @@ namespace RectangleEditor_WinForms {
 				}
 				canvas.Refresh();
 			}
+		}
+
+		private void moveButton_Click(object sender, EventArgs e) {
+
+		}
+
+		private void canvas_Click(object sender, EventArgs e) {
+			List<Rectangle> onBoardRects = command.GetBoard.OnBoardRects;
+
+			if(onBoardRects.Count() == 0) {
+				return;
+			}
+
+
+			
 		}
 	}
 }

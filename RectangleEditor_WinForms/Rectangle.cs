@@ -29,5 +29,21 @@ namespace RectangleEditor_WinForms {
 		public bool isNegative() {
 			return this.Width < 0 || this.Height < 0 || this.X < 0 || this.Y < 0;
 		}
+
+		//引数の座標が長方形の範囲内にあるならtrue
+		public bool isContain(int x, int y) {
+			if(x<this.X || x > this.X + Width) {
+				return false;
+			}
+			if(y < this.Y || x > this.Y + Height) {
+				return false;
+			}
+			return true;
+		}
+
+		//面積を返す
+		public int calArea() {
+			return Width * Height;
+		}
 	}
 }
