@@ -38,10 +38,12 @@ namespace RectangleEditor_WinForms {
 			this.radioButton_red = new System.Windows.Forms.RadioButton();
 			this.radioButton_blue = new System.Windows.Forms.RadioButton();
 			this.radioButton_yellow = new System.Windows.Forms.RadioButton();
-			this.radioButton_grey = new System.Windows.Forms.RadioButton();
+			this.radioButton_gray = new System.Windows.Forms.RadioButton();
 			this.createButton = new System.Windows.Forms.Button();
 			this.flowLayoutPanel_create = new System.Windows.Forms.FlowLayoutPanel();
+			this.canvas = new System.Windows.Forms.PictureBox();
 			this.flowLayoutPanel_create.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label_width
@@ -143,16 +145,16 @@ namespace RectangleEditor_WinForms {
 			this.radioButton_yellow.Text = "yellow";
 			this.radioButton_yellow.UseVisualStyleBackColor = true;
 			// 
-			// radioButton_grey
+			// radioButton_gray
 			// 
-			this.radioButton_grey.AutoSize = true;
-			this.radioButton_grey.Location = new System.Drawing.Point(763, 3);
-			this.radioButton_grey.Name = "radioButton_grey";
-			this.radioButton_grey.Size = new System.Drawing.Size(78, 34);
-			this.radioButton_grey.TabIndex = 11;
-			this.radioButton_grey.TabStop = true;
-			this.radioButton_grey.Text = "grey";
-			this.radioButton_grey.UseVisualStyleBackColor = true;
+			this.radioButton_gray.AutoSize = true;
+			this.radioButton_gray.Location = new System.Drawing.Point(763, 3);
+			this.radioButton_gray.Name = "radioButton_gray";
+			this.radioButton_gray.Size = new System.Drawing.Size(78, 34);
+			this.radioButton_gray.TabIndex = 11;
+			this.radioButton_gray.TabStop = true;
+			this.radioButton_gray.Text = "gray";
+			this.radioButton_gray.UseVisualStyleBackColor = true;
 			// 
 			// createButton
 			// 
@@ -177,23 +179,33 @@ namespace RectangleEditor_WinForms {
 			this.flowLayoutPanel_create.Controls.Add(this.radioButton_red);
 			this.flowLayoutPanel_create.Controls.Add(this.radioButton_blue);
 			this.flowLayoutPanel_create.Controls.Add(this.radioButton_yellow);
-			this.flowLayoutPanel_create.Controls.Add(this.radioButton_grey);
+			this.flowLayoutPanel_create.Controls.Add(this.radioButton_gray);
 			this.flowLayoutPanel_create.Controls.Add(this.createButton);
 			this.flowLayoutPanel_create.Location = new System.Drawing.Point(316, 38);
 			this.flowLayoutPanel_create.Name = "flowLayoutPanel_create";
 			this.flowLayoutPanel_create.Size = new System.Drawing.Size(1135, 57);
 			this.flowLayoutPanel_create.TabIndex = 13;
 			// 
+			// pictureBox1
+			// 
+			this.canvas.Location = new System.Drawing.Point(220, 190);
+			this.canvas.Name = "canvas";
+			this.canvas.Size = new System.Drawing.Size(1418, 780);
+			this.canvas.TabIndex = 14;
+			this.canvas.TabStop = false;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1745, 1084);
+			this.ClientSize = new System.Drawing.Size(1919, 1163);
+			this.Controls.Add(this.canvas);
 			this.Controls.Add(this.flowLayoutPanel_create);
 			this.Name = "Form1";
 			this.Text = "RectangleEditor";
 			this.flowLayoutPanel_create.ResumeLayout(false);
 			this.flowLayoutPanel_create.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -211,9 +223,10 @@ namespace RectangleEditor_WinForms {
 		private System.Windows.Forms.RadioButton radioButton_red;
 		private System.Windows.Forms.RadioButton radioButton_blue;
 		private System.Windows.Forms.RadioButton radioButton_yellow;
-		private System.Windows.Forms.RadioButton radioButton_grey;
+		private System.Windows.Forms.RadioButton radioButton_gray;
 		private System.Windows.Forms.Button createButton;
 		private FlowLayoutPanel flowLayoutPanel_create;
+		private PictureBox canvas;
 	}
 }
 
