@@ -127,22 +127,5 @@ namespace RectangleEditor_WinForms {
 		public Board GetBoard {
 			get { return board; }
 		}
-
-		//ループを出るか出ないかのフラグ
-		//public bool isExit { get; set; }
-
-		////入力処理(エラー処理も行う)
-		//private int inputInt() {
-		//	int input;
-		//	while (true) {
-		//		try {
-		//			input = int.Parse(Console.ReadLine());
-		//			return input;
-		//		} catch (FormatException e) {
-		//			Console.WriteLine(e.Message);
-		//			continue;
-		//		}
-		//	}
-		//}
 	}
 }
