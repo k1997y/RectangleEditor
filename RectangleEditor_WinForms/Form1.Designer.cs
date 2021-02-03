@@ -209,7 +209,7 @@ namespace RectangleEditor_WinForms {
 			this.canvas.Size = new System.Drawing.Size(1626, 829);
 			this.canvas.TabIndex = 14;
 			this.canvas.TabStop = false;
-			this.canvas.Click += new System.EventHandler(this.canvas_Click);
+			this.canvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseClick);
 			// 
 			// flowLayoutPanel_twoCommand
 			// 
