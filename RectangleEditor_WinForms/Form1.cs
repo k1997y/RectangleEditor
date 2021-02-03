@@ -15,6 +15,19 @@ namespace RectangleEditor_WinForms {
 		public Form1() {
 			InitializeComponent();
 			command = new Command();
+
+			//キャンバスの枠線を描く
+			Bitmap bmp = canvas.Image as Bitmap;
+			if (bmp != null) {
+				bmp.Dispose();
+			}
+			bmp = new Bitmap(canvas.Width, canvas.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+			canvas.Image = bmp;
+
+			using (var g = Graphics.FromImage(bmp)) {
+				g.Clear(Color.White);
+				g.DrawRectangle(Pens.Black, 0, 0, canvas.Width - 1, canvas.Height - 1);
+			}
 		}
 
 		private void createButton_Click(object sender, EventArgs e) {

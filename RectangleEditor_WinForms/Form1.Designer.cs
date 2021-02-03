@@ -42,8 +42,24 @@ namespace RectangleEditor_WinForms {
 			this.createButton = new System.Windows.Forms.Button();
 			this.flowLayoutPanel_create = new System.Windows.Forms.FlowLayoutPanel();
 			this.canvas = new System.Windows.Forms.PictureBox();
+			this.flowLayoutPanel_twoCommand = new System.Windows.Forms.FlowLayoutPanel();
+			this.flowLayoutPanel_move = new System.Windows.Forms.FlowLayoutPanel();
+			this.label_dx = new System.Windows.Forms.Label();
+			this.textBox_dx = new System.Windows.Forms.TextBox();
+			this.label_dy = new System.Windows.Forms.Label();
+			this.textBox_dy = new System.Windows.Forms.TextBox();
+			this.button_move = new System.Windows.Forms.Button();
+			this.flowLayoutPanel_expandShrink = new System.Windows.Forms.FlowLayoutPanel();
+			this.label_widthScale = new System.Windows.Forms.Label();
+			this.textBox_widthScale = new System.Windows.Forms.TextBox();
+			this.label_heightScale = new System.Windows.Forms.Label();
+			this.textBox_heightScale = new System.Windows.Forms.TextBox();
+			this.button_expandShrink = new System.Windows.Forms.Button();
 			this.flowLayoutPanel_create.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
+			this.flowLayoutPanel_twoCommand.SuspendLayout();
+			this.flowLayoutPanel_move.SuspendLayout();
+			this.flowLayoutPanel_expandShrink.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label_width
@@ -160,7 +176,7 @@ namespace RectangleEditor_WinForms {
 			// 
 			this.createButton.Location = new System.Drawing.Point(847, 3);
 			this.createButton.Name = "createButton";
-			this.createButton.Size = new System.Drawing.Size(131, 40);
+			this.createButton.Size = new System.Drawing.Size(100, 40);
 			this.createButton.TabIndex = 12;
 			this.createButton.Text = "create";
 			this.createButton.UseVisualStyleBackColor = true;
@@ -181,18 +197,135 @@ namespace RectangleEditor_WinForms {
 			this.flowLayoutPanel_create.Controls.Add(this.radioButton_yellow);
 			this.flowLayoutPanel_create.Controls.Add(this.radioButton_gray);
 			this.flowLayoutPanel_create.Controls.Add(this.createButton);
-			this.flowLayoutPanel_create.Location = new System.Drawing.Point(316, 38);
+			this.flowLayoutPanel_create.Location = new System.Drawing.Point(396, 39);
 			this.flowLayoutPanel_create.Name = "flowLayoutPanel_create";
 			this.flowLayoutPanel_create.Size = new System.Drawing.Size(1135, 57);
 			this.flowLayoutPanel_create.TabIndex = 13;
 			// 
-			// pictureBox1
+			// canvas
 			// 
-			this.canvas.Location = new System.Drawing.Point(220, 190);
+			this.canvas.Location = new System.Drawing.Point(128, 251);
 			this.canvas.Name = "canvas";
-			this.canvas.Size = new System.Drawing.Size(1418, 780);
+			this.canvas.Size = new System.Drawing.Size(1626, 829);
 			this.canvas.TabIndex = 14;
 			this.canvas.TabStop = false;
+			// 
+			// flowLayoutPanel_twoCommand
+			// 
+			this.flowLayoutPanel_twoCommand.Controls.Add(this.flowLayoutPanel_move);
+			this.flowLayoutPanel_twoCommand.Controls.Add(this.flowLayoutPanel_expandShrink);
+			this.flowLayoutPanel_twoCommand.Location = new System.Drawing.Point(450, 117);
+			this.flowLayoutPanel_twoCommand.Name = "flowLayoutPanel_twoCommand";
+			this.flowLayoutPanel_twoCommand.Size = new System.Drawing.Size(1065, 61);
+			this.flowLayoutPanel_twoCommand.TabIndex = 13;
+			// 
+			// flowLayoutPanel_move
+			// 
+			this.flowLayoutPanel_move.Controls.Add(this.label_dx);
+			this.flowLayoutPanel_move.Controls.Add(this.textBox_dx);
+			this.flowLayoutPanel_move.Controls.Add(this.label_dy);
+			this.flowLayoutPanel_move.Controls.Add(this.textBox_dy);
+			this.flowLayoutPanel_move.Controls.Add(this.button_move);
+			this.flowLayoutPanel_move.Location = new System.Drawing.Point(3, 3);
+			this.flowLayoutPanel_move.Name = "flowLayoutPanel_move";
+			this.flowLayoutPanel_move.Size = new System.Drawing.Size(436, 102);
+			this.flowLayoutPanel_move.TabIndex = 0;
+			// 
+			// label_dx
+			// 
+			this.label_dx.AutoSize = true;
+			this.label_dx.Location = new System.Drawing.Point(3, 0);
+			this.label_dx.Name = "label_dx";
+			this.label_dx.Size = new System.Drawing.Size(35, 30);
+			this.label_dx.TabIndex = 0;
+			this.label_dx.Text = "dx";
+			// 
+			// textBox_dx
+			// 
+			this.textBox_dx.Location = new System.Drawing.Point(44, 3);
+			this.textBox_dx.Name = "textBox_dx";
+			this.textBox_dx.Size = new System.Drawing.Size(70, 35);
+			this.textBox_dx.TabIndex = 1;
+			// 
+			// label_dy
+			// 
+			this.label_dy.AutoSize = true;
+			this.label_dy.Location = new System.Drawing.Point(120, 0);
+			this.label_dy.Name = "label_dy";
+			this.label_dy.Size = new System.Drawing.Size(35, 30);
+			this.label_dy.TabIndex = 2;
+			this.label_dy.Text = "dy";
+			// 
+			// textBox_dy
+			// 
+			this.textBox_dy.Location = new System.Drawing.Point(161, 3);
+			this.textBox_dy.Name = "textBox_dy";
+			this.textBox_dy.Size = new System.Drawing.Size(70, 35);
+			this.textBox_dy.TabIndex = 3;
+			// 
+			// button_move
+			// 
+			this.button_move.Location = new System.Drawing.Point(274, 3);
+			this.button_move.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+			this.button_move.Name = "button_move";
+			this.button_move.Size = new System.Drawing.Size(101, 40);
+			this.button_move.TabIndex = 4;
+			this.button_move.Text = "move";
+			this.button_move.UseVisualStyleBackColor = true;
+			// 
+			// flowLayoutPanel_expandShrink
+			// 
+			this.flowLayoutPanel_expandShrink.Controls.Add(this.label_widthScale);
+			this.flowLayoutPanel_expandShrink.Controls.Add(this.textBox_widthScale);
+			this.flowLayoutPanel_expandShrink.Controls.Add(this.label_heightScale);
+			this.flowLayoutPanel_expandShrink.Controls.Add(this.textBox_heightScale);
+			this.flowLayoutPanel_expandShrink.Controls.Add(this.button_expandShrink);
+			this.flowLayoutPanel_expandShrink.Location = new System.Drawing.Point(445, 3);
+			this.flowLayoutPanel_expandShrink.Name = "flowLayoutPanel_expandShrink";
+			this.flowLayoutPanel_expandShrink.Size = new System.Drawing.Size(604, 102);
+			this.flowLayoutPanel_expandShrink.TabIndex = 1;
+			// 
+			// label_widthScale
+			// 
+			this.label_widthScale.AutoSize = true;
+			this.label_widthScale.Location = new System.Drawing.Point(3, 0);
+			this.label_widthScale.Name = "label_widthScale";
+			this.label_widthScale.Size = new System.Drawing.Size(93, 30);
+			this.label_widthScale.TabIndex = 0;
+			this.label_widthScale.Text = "幅の倍率";
+			// 
+			// textBox_widthScale
+			// 
+			this.textBox_widthScale.Location = new System.Drawing.Point(102, 3);
+			this.textBox_widthScale.Name = "textBox_widthScale";
+			this.textBox_widthScale.Size = new System.Drawing.Size(70, 35);
+			this.textBox_widthScale.TabIndex = 1;
+			// 
+			// label_heightScale
+			// 
+			this.label_heightScale.AutoSize = true;
+			this.label_heightScale.Location = new System.Drawing.Point(178, 0);
+			this.label_heightScale.Name = "label_heightScale";
+			this.label_heightScale.Size = new System.Drawing.Size(107, 30);
+			this.label_heightScale.TabIndex = 2;
+			this.label_heightScale.Text = "高さの倍率";
+			// 
+			// textBox_heightScale
+			// 
+			this.textBox_heightScale.Location = new System.Drawing.Point(291, 3);
+			this.textBox_heightScale.Name = "textBox_heightScale";
+			this.textBox_heightScale.Size = new System.Drawing.Size(70, 35);
+			this.textBox_heightScale.TabIndex = 3;
+			// 
+			// button_expandShrink
+			// 
+			this.button_expandShrink.Location = new System.Drawing.Point(404, 3);
+			this.button_expandShrink.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+			this.button_expandShrink.Name = "button_expandShrink";
+			this.button_expandShrink.Size = new System.Drawing.Size(171, 40);
+			this.button_expandShrink.TabIndex = 4;
+			this.button_expandShrink.Text = "expand/shrink";
+			this.button_expandShrink.UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
@@ -201,23 +334,17 @@ namespace RectangleEditor_WinForms {
 			this.ClientSize = new System.Drawing.Size(1919, 1163);
 			this.Controls.Add(this.canvas);
 			this.Controls.Add(this.flowLayoutPanel_create);
+			this.Controls.Add(this.flowLayoutPanel_twoCommand);
 			this.Name = "Form1";
 			this.Text = "RectangleEditor";
 			this.flowLayoutPanel_create.ResumeLayout(false);
 			this.flowLayoutPanel_create.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
-
-			Bitmap bmp = canvas.Image as Bitmap;
-			if(bmp != null) {
-				bmp.Dispose();
-			}
-			bmp = new Bitmap(canvas.Width, canvas.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-			canvas.Image = bmp;
-
-			using (var g = Graphics.FromImage(bmp)) {
-				g.Clear(Color.White);
-				g.DrawRectangle(Pens.Black, 0, 0, canvas.Width-1, canvas.Height-1);
-			}
+			this.flowLayoutPanel_twoCommand.ResumeLayout(false);
+			this.flowLayoutPanel_move.ResumeLayout(false);
+			this.flowLayoutPanel_move.PerformLayout();
+			this.flowLayoutPanel_expandShrink.ResumeLayout(false);
+			this.flowLayoutPanel_expandShrink.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -239,6 +366,19 @@ namespace RectangleEditor_WinForms {
 		private System.Windows.Forms.Button createButton;
 		private FlowLayoutPanel flowLayoutPanel_create;
 		private PictureBox canvas;
+		private FlowLayoutPanel flowLayoutPanel_twoCommand;
+		private FlowLayoutPanel flowLayoutPanel_move;
+		private Label label_dx;
+		private TextBox textBox_dx;
+		private Label label_dy;
+		private TextBox textBox_dy;
+		private Button button_move;
+		private FlowLayoutPanel flowLayoutPanel_expandShrink;
+		private Label label_widthScale;
+		private TextBox textBox_widthScale;
+		private Label label_heightScale;
+		private TextBox textBox_heightScale;
+		private Button button_expandShrink;
 	}
 }
 
