@@ -47,23 +47,6 @@ namespace RectangleEditor_WinForms {
 			command.createCmd(width, height, x, y, color);
 			List<Rectangle> onBoardRects = command.GetBoard.OnBoardRects;
 
-			//ペンの色を設定
-			Pen pen;
-			switch (color) {
-				case 0:
-					pen = new Pen(Color.Red);
-					break;
-				case 1:
-					pen = new Pen(Color.Blue);
-					break;
-				case 2:
-					pen = new Pen(Color.Yellow);
-					break;
-				case 3:
-					pen = new Pen(Color.Gray);
-					break;
-			}
-
 			Bitmap bmp = canvas.Image as Bitmap;
 			if(bmp != null) {
 				bmp.Dispose();
@@ -75,7 +58,20 @@ namespace RectangleEditor_WinForms {
 			using(var g = Graphics.FromImage(bmp)) {
 				g.Clear(Color.White);
 				foreach(RectangleEditor_WinForms.Rectangle r in onBoardRects) {
-					g.FillRectangle(Brushes.Red, r.X, r.Y, r.Width, r.Height);
+					switch (r.Color) {
+						case 0:
+							g.FillRectangle(Brushes.Red, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 1:
+							g.FillRectangle(Brushes.Blue, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 2:
+							g.FillRectangle(Brushes.Yellow, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 3:
+							g.FillRectangle(Brushes.Gray, r.X, r.Y, r.Width, r.Height);
+							break;
+					}
 				}
 				canvas.Refresh();
 			}

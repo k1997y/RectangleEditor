@@ -206,6 +206,18 @@ namespace RectangleEditor_WinForms {
 			this.flowLayoutPanel_create.ResumeLayout(false);
 			this.flowLayoutPanel_create.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.canvas)).EndInit();
+
+			Bitmap bmp = canvas.Image as Bitmap;
+			if(bmp != null) {
+				bmp.Dispose();
+			}
+			bmp = new Bitmap(canvas.Width, canvas.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+			canvas.Image = bmp;
+
+			using (var g = Graphics.FromImage(bmp)) {
+				g.Clear(Color.White);
+				g.DrawRectangle(Pens.Black, 0, 0, canvas.Width-1, canvas.Height-1);
+			}
 			this.ResumeLayout(false);
 
 		}
