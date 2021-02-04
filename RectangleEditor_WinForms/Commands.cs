@@ -49,47 +49,25 @@ namespace RectangleEditor_WinForms {
 			board.replaceRect(r, index);
 		}
 
-		//public void intersectCmd() {
+		public void intersectCmd() {
 
-		//}
+		}
 
-		//public void deleteCmd() {
-		//	int n;
-		//	if (board.countRects() == 0) {
-		//		Console.Write("ボード上に長方形がありません\n");
-		//		return;
-		//	}
+		public void deleteCmd(int index) {
+			
+			if (board.countRects() == 0) {
+				return;
+			}
 
-		//	displayBoardCmd();
-		//	Console.Write("削除したい長方形を指定してください\n-->");
-		//	n = int.Parse(Console.ReadLine());
+			board.deleteRect(index);
+		}
 
-		//	board.deleteRect(n);
-		//	Console.Write("指定された長方形は削除されました\n");
-		//	displayBoardCmd();
-		//}
-
-		//public void deleteAllCmd() {
-		//	if (board.countRects() == 0) {
-		//		Console.Write("ボード上に長方形がありません\n");
-		//		return;
-		//	}
-		//	board.clearBoard();
-		//	Console.Write("ボードがクリアされました\n");
-		//}
-
-		//public void displayBoardCmd() {
-		//	if (board.countRects() == 0) {
-		//		Console.Write("ボード上に長方形がありません\n");
-		//	} else {
-		//		for (int i = 0; i < board.countRects(); i++) {
-		//			Rectangle r = board.getRect(i);
-		//			Console.Write("{0}: ", i + 1);
-		//			r.showRectAttribute();
-		//		}
-		//		Console.Write("\n");
-		//	}
-		//}
+		public void deleteAllCmd() {
+			if (board.countRects() == 0) {
+				return;
+			}
+			board.clearBoard();
+		}
 
 		private Board board;
 		public Board GetBoard {

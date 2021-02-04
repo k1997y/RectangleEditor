@@ -108,6 +108,26 @@ namespace RectangleEditor_WinForms {
 		}
 
 		/// <summary>
+		/// deleteボタンが押されたときの挙動を定義する
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void deleteButton_Click(object sender, EventArgs e) {
+			command.deleteCmd(selectedRectNum);
+			DrawRects();
+		}
+
+		/// <summary>
+		/// deleteAllボタンが押されたときの挙動を定義する
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void deleteAllButton_Click(object sender, EventArgs e) {
+			command.deleteAllCmd();
+			DrawRects();
+		}
+
+		/// <summary>
 		/// キャンバスがクリックされたときの挙動を定義する
 		/// </summary>
 		/// <param name="sender"></param>
@@ -236,8 +256,6 @@ namespace RectangleEditor_WinForms {
 			}
 			canvas.Refresh();
 		}
-
-		
 	}
 }
 

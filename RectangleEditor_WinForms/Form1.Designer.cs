@@ -55,11 +55,16 @@ namespace RectangleEditor_WinForms {
 			this.label_heightScale = new System.Windows.Forms.Label();
 			this.textBox_heightScale = new System.Windows.Forms.TextBox();
 			this.expandShrinkButton = new System.Windows.Forms.Button();
+			this.flowLayoutPanel_threeCommand = new System.Windows.Forms.FlowLayoutPanel();
+			this.intersectButton = new System.Windows.Forms.Button();
+			this.deleteButton = new System.Windows.Forms.Button();
+			this.deleteAllButton = new System.Windows.Forms.Button();
 			this.flowLayoutPanel_create.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
 			this.flowLayoutPanel_twoCommand.SuspendLayout();
 			this.flowLayoutPanel_move.SuspendLayout();
 			this.flowLayoutPanel_expandShrink.SuspendLayout();
+			this.flowLayoutPanel_threeCommand.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// label_width
@@ -215,9 +220,10 @@ namespace RectangleEditor_WinForms {
 			// 
 			this.flowLayoutPanel_twoCommand.Controls.Add(this.flowLayoutPanel_move);
 			this.flowLayoutPanel_twoCommand.Controls.Add(this.flowLayoutPanel_expandShrink);
-			this.flowLayoutPanel_twoCommand.Location = new System.Drawing.Point(450, 117);
+			this.flowLayoutPanel_twoCommand.Controls.Add(this.flowLayoutPanel_threeCommand);
+			this.flowLayoutPanel_twoCommand.Location = new System.Drawing.Point(241, 124);
 			this.flowLayoutPanel_twoCommand.Name = "flowLayoutPanel_twoCommand";
-			this.flowLayoutPanel_twoCommand.Size = new System.Drawing.Size(1065, 61);
+			this.flowLayoutPanel_twoCommand.Size = new System.Drawing.Size(1588, 61);
 			this.flowLayoutPanel_twoCommand.TabIndex = 13;
 			// 
 			// flowLayoutPanel_move
@@ -330,6 +336,48 @@ namespace RectangleEditor_WinForms {
 			this.expandShrinkButton.UseVisualStyleBackColor = true;
 			this.expandShrinkButton.Click += new System.EventHandler(this.expandShrinkButton_Click);
 			// 
+			// flowLayoutPanel_threeCommand
+			// 
+			this.flowLayoutPanel_threeCommand.Controls.Add(this.intersectButton);
+			this.flowLayoutPanel_threeCommand.Controls.Add(this.deleteButton);
+			this.flowLayoutPanel_threeCommand.Controls.Add(this.deleteAllButton);
+			this.flowLayoutPanel_threeCommand.Location = new System.Drawing.Point(1092, 3);
+			this.flowLayoutPanel_threeCommand.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+			this.flowLayoutPanel_threeCommand.Name = "flowLayoutPanel_threeCommand";
+			this.flowLayoutPanel_threeCommand.Size = new System.Drawing.Size(472, 43);
+			this.flowLayoutPanel_threeCommand.TabIndex = 2;
+			// 
+			// intersectButton
+			// 
+			this.intersectButton.Location = new System.Drawing.Point(3, 3);
+			this.intersectButton.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
+			this.intersectButton.Name = "intersectButton";
+			this.intersectButton.Size = new System.Drawing.Size(131, 40);
+			this.intersectButton.TabIndex = 0;
+			this.intersectButton.Text = "intersect";
+			this.intersectButton.UseVisualStyleBackColor = true;
+			// 
+			// deleteButton
+			// 
+			this.deleteButton.Location = new System.Drawing.Point(167, 3);
+			this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
+			this.deleteButton.Name = "deleteButton";
+			this.deleteButton.Size = new System.Drawing.Size(131, 40);
+			this.deleteButton.TabIndex = 1;
+			this.deleteButton.Text = "delete";
+			this.deleteButton.UseVisualStyleBackColor = true;
+			this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+			// 
+			// deleteAllButton
+			// 
+			this.deleteAllButton.Location = new System.Drawing.Point(331, 3);
+			this.deleteAllButton.Name = "deleteAllButton";
+			this.deleteAllButton.Size = new System.Drawing.Size(131, 40);
+			this.deleteAllButton.TabIndex = 2;
+			this.deleteAllButton.Text = "deleteAll";
+			this.deleteAllButton.UseVisualStyleBackColor = true;
+			this.deleteAllButton.Click += new System.EventHandler(this.deleteAllButton_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
@@ -348,6 +396,7 @@ namespace RectangleEditor_WinForms {
 			this.flowLayoutPanel_move.PerformLayout();
 			this.flowLayoutPanel_expandShrink.ResumeLayout(false);
 			this.flowLayoutPanel_expandShrink.PerformLayout();
+			this.flowLayoutPanel_threeCommand.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -382,6 +431,10 @@ namespace RectangleEditor_WinForms {
 		private Label label_heightScale;
 		private TextBox textBox_heightScale;
 		private Button expandShrinkButton;
+		private FlowLayoutPanel flowLayoutPanel_threeCommand;
+		private Button intersectButton;
+		private Button deleteButton;
+		private Button deleteAllButton;
 	}
 }
 
