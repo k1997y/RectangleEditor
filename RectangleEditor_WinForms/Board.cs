@@ -43,6 +43,18 @@ namespace RectangleEditor_WinForms {
 			return false;
 		}
 
+		//ボード上のある点が長方形に含まれない場合にtrue
+		public bool isNotContain(int x, int y) {
+			List<Rectangle> rects = OnBoardRects;
+
+			foreach(Rectangle r in rects) {
+				if (r.isContain(x,y)) {
+					return false;
+				}
+			}
+			return true;
+		}
+
 		private const int WIDTH = 500;
 		private const int HEIGHT = 400;
 

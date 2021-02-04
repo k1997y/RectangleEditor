@@ -35,10 +35,21 @@ namespace RectangleEditor_WinForms {
 			if(x<this.X || x > this.X + Width) {
 				return false;
 			}
-			if(y < this.Y || x > this.Y + Height) {
+			if(y < this.Y || y > this.Y + Height) {
 				return false;
 			}
 			return true;
+		}
+
+		//引数の座標が長方形の範囲外にあるならtrue
+		public bool isNotContain(int x, int y) {
+			if(x<this.X || x > this.X+Width) {
+				return true;
+			}
+			if(y<this.Y || y >this.Y + Height) {
+				return true;
+			}
+			return false;
 		}
 
 		//面積を返す

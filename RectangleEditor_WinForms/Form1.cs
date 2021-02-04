@@ -11,12 +11,13 @@ using System.Windows.Forms;
 namespace RectangleEditor_WinForms {
 	public partial class Form1 : Form {
 		Command command;
-		RectangleEditor_WinForms.Rectangle selectedRect = null; //クリックで選択された長方形
-		int selectedRectNum = -1;   //選択された長方形のインデックス
+		//選択された長方形のインデックスのセット
+		HashSet<int> selectedRectsNumSet;
 
 		public Form1() {
 			InitializeComponent();
 			command = new Command();
+			selectedRectsNumSet = new HashSet<int>();
 
 			//キャンバスの枠線を描く
 			Bitmap bmp = canvas.Image as Bitmap;
@@ -83,8 +84,11 @@ namespace RectangleEditor_WinForms {
 				System.Console.WriteLine(exception.Message);
 			}
 
-			command.moveCmd(selectedRectNum, dx, dy);
+			foreach (int index in selectedRectsNumSet) {
+				command.moveCmd(index, dx, dy);
+			}
 			DrawRects();
+
 		}
 
 		/// <summary>
@@ -103,7 +107,9 @@ namespace RectangleEditor_WinForms {
 				System.Console.WriteLine(exception.Message);
 			}
 
-			command.expand_shrinkCmd(selectedRectNum, widthScale, heightScale);
+			foreach (int index in selectedRectsNumSet) {
+				command.expand_shrinkCmd(index, widthScale, heightScale);
+			}
 			DrawRects();
 		}
 
@@ -113,7 +119,9 @@ namespace RectangleEditor_WinForms {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void deleteButton_Click(object sender, EventArgs e) {
-			command.deleteCmd(selectedRectNum);
+			foreach (int index in selectedRectsNumSet) {
+				command.deleteCmd(index);
+			}
 			DrawRects();
 		}
 
@@ -134,70 +142,82 @@ namespace RectangleEditor_WinForms {
 		/// <param name="e"></param>
 		private void canvas_MouseClick(object sender, MouseEventArgs e) {
 			List<Rectangle> onBoardRects = command.GetBoard.OnBoardRects;
-
-			if (onBoardRects.Count() == 0) {
-				selectedRect = null;
-				selectedRectNum = -1;
+			if (command.GetBoard.countRects() == 0) {
 				return;
 			}
 
-			selectedRect = null;
-			selectedRectNum = -1;
-
 			int index = 0;
+			if (command.GetBoard.isNotContain(e.X,e.Y)) {
+				selectedRectsNumSet.Clear();
+				DrawRects();
+				return;
+			}
 			foreach (RectangleEditor_WinForms.Rectangle r in onBoardRects) {
 				if (r.isContain(e.X, e.Y)) {
-					if (selectedRect == null) {
-						selectedRect = r;
-						selectedRectNum = index;
-					}
+						selectedRectsNumSet.Add(index);
+					
 					//面積がより小さい方を選択された長方形とみなす
-					else if (selectedRect.calArea() > r.calArea()) {
-						selectedRect = r;
-						selectedRectNum = index;
-					}
+					//else if (selectedRect.calArea() > r.calArea()) {
+					//	selectedRect = r;
+					//	selectedRectNum = index;
+					//}
 				}
+				//長方形外をクリックした場合選択を解除する
+				//else if (r.isNotContain(e.X,e.Y) ){
+				//	selectedRectsNumSet.Clear();
+				//	DrawRects();
+				//	return;
+				//}
 				index++;
 			}
+
+			//長方形が選択されなかったら再描画してreturn
+			//if (selectedRectsNumSet.Count == 0) {
+			//	DrawRects();
+			//	return;
+			//}
 
 			Bitmap bmp = canvas.Image as Bitmap;
 			if (bmp != null) {
 				bmp.Dispose();
 			}
-
 			bmp = new Bitmap(canvas.Width, canvas.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
 			canvas.Image = bmp;
+
 			//選択された長方形を強調する
-			if (selectedRect != null) {
-				using var g = Graphics.FromImage(bmp);
-				index = 0;
-				g.Clear(Color.White);
+			using var g = Graphics.FromImage(bmp);
+			g.Clear(Color.White);
 
-				foreach (RectangleEditor_WinForms.Rectangle r in onBoardRects) {
-					if (index == selectedRectNum) {
-						continue;
-					} else {
-						switch (r.Color) {
-							case 0:
-								g.FillRectangle(Brushes.Red, r.X, r.Y, r.Width, r.Height);
-								break;
-							case 1:
-								g.FillRectangle(Brushes.Blue, r.X, r.Y, r.Width, r.Height);
-								break;
-							case 2:
-								g.FillRectangle(Brushes.Yellow, r.X, r.Y, r.Width, r.Height);
-								break;
-							case 3:
-								g.FillRectangle(Brushes.Gray, r.X, r.Y, r.Width, r.Height);
-								break;
-						}
-					}
+			index = 0;
+			foreach (RectangleEditor_WinForms.Rectangle r in onBoardRects) {
+				if (selectedRectsNumSet.Contains(index)) {
 					index++;
+					continue;
+				} else {
+					switch (r.Color) {
+						case 0:
+							g.FillRectangle(Brushes.Red, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 1:
+							g.FillRectangle(Brushes.Blue, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 2:
+							g.FillRectangle(Brushes.Yellow, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 3:
+							g.FillRectangle(Brushes.Gray, r.X, r.Y, r.Width, r.Height);
+							break;
+					}
 				}
+				index++;
+			}
 
-				//半透明で選択された長方形を描く
-				Color c;
-				switch (selectedRect.Color) {
+			//半透明で選択された長方形を描く
+			Color c;
+			foreach (int i in selectedRectsNumSet) {
+				RectangleEditor_WinForms.Rectangle r = command.GetBoard.getRect(i);
+
+				switch (r.Color) {
 					case 0:
 						c = Color.FromArgb(50, Color.Red);
 						break;
@@ -214,14 +234,10 @@ namespace RectangleEditor_WinForms {
 						return;
 				}
 				SolidBrush sb = new SolidBrush(c);
-				g.FillRectangle(sb, selectedRect.X, selectedRect.Y, selectedRect.Width, selectedRect.Height);
-				canvas.Refresh();
+				g.FillRectangle(sb, r.X, r.Y, r.Width, r.Height);
+			}
+			canvas.Refresh();
 
-			}
-			//長方形が選択されなかったら再描画する
-			else {
-				DrawRects();
-			}
 		}
 
 
