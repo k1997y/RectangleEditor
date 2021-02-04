@@ -40,25 +40,13 @@ namespace RectangleEditor_WinForms {
 			board.replaceRect(r, index);
 		}
 
-		public void expand_shrinkCmd() {
-			Rectangle r = board.getRect(n - 1);
+		public void expand_shrinkCmd(int index,double widthScale,double heightScale) {
+			Rectangle r = board.getRect(index);
 
-			double mx, my;
-			Console.Write("幅の拡大縮小率を入力\n-->");
-			mx = double.Parse(Console.ReadLine());
-			Console.Write("y方向の移動距離を入力\n-->");
-			my = double.Parse(Console.ReadLine());
+			r.Width = (int)Math.Round(r.Width*widthScale);
+			r.Height = (int)Math.Round(r.Height * heightScale);
 
-			int[] attribute = new int[5];
-
-			attribute = r.getAttribute();
-			attribute[0] = (int)Math.Round(attribute[0] * mx);
-			attribute[1] = (int)Math.Round(attribute[1] * my);
-			r.setAttribute(attribute);
-
-			board.replaceRect(r, n);
-			Console.Write("長方形{0}が移動されました\n", n);
-			displayBoardCmd();
+			board.replaceRect(r, index);
 		}
 
 		//public void intersectCmd() {

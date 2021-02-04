@@ -73,8 +73,9 @@ namespace RectangleEditor_WinForms {
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private void moveButton_Click(object sender, EventArgs e) {
-			int dx = 100;
-			int dy = 100;
+			int dx = 0;
+			int dy = 0;
+
 			try {
 				dx = int.Parse(textBox_dx.Text);
 				dy = int.Parse(textBox_dy.Text);
@@ -83,6 +84,26 @@ namespace RectangleEditor_WinForms {
 			}
 
 			command.moveCmd(selectedRectNum, dx, dy);
+			DrawRects();
+		}
+
+		/// <summary>
+		/// expand/shrinkボタンが押されたときの挙動を定義する
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void expandShrinkButton_Click(object sender, EventArgs e) {
+			double widthScale = 0.0;
+			double heightScale = 0.0;
+
+			try {
+				widthScale = double.Parse(textBox_widthScale.Text);
+				heightScale = double.Parse(textBox_heightScale.Text);
+			} catch (FormatException exception) {
+				System.Console.WriteLine(exception.Message);
+			}
+
+			command.expand_shrinkCmd(selectedRectNum, widthScale, heightScale);
 			DrawRects();
 		}
 
@@ -215,6 +236,8 @@ namespace RectangleEditor_WinForms {
 			}
 			canvas.Refresh();
 		}
+
+		
 	}
 }
 

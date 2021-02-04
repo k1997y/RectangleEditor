@@ -319,7 +319,7 @@ namespace RectangleEditor_WinForms {
 			this.textBox_heightScale.Size = new System.Drawing.Size(70, 35);
 			this.textBox_heightScale.TabIndex = 3;
 			// 
-			// button_expandShrink
+			// expandShrinkButton
 			// 
 			this.expandShrinkButton.Location = new System.Drawing.Point(404, 3);
 			this.expandShrinkButton.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
@@ -328,6 +328,7 @@ namespace RectangleEditor_WinForms {
 			this.expandShrinkButton.TabIndex = 4;
 			this.expandShrinkButton.Text = "expand/shrink";
 			this.expandShrinkButton.UseVisualStyleBackColor = true;
+			this.expandShrinkButton.Click += new System.EventHandler(this.expandShrinkButton_Click);
 			// 
 			// Form1
 			// 
