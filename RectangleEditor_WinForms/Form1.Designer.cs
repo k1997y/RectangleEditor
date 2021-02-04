@@ -48,13 +48,13 @@ namespace RectangleEditor_WinForms {
 			this.textBox_dx = new System.Windows.Forms.TextBox();
 			this.label_dy = new System.Windows.Forms.Label();
 			this.textBox_dy = new System.Windows.Forms.TextBox();
-			this.button_move = new System.Windows.Forms.Button();
+			this.moveButton = new System.Windows.Forms.Button();
 			this.flowLayoutPanel_expandShrink = new System.Windows.Forms.FlowLayoutPanel();
 			this.label_widthScale = new System.Windows.Forms.Label();
 			this.textBox_widthScale = new System.Windows.Forms.TextBox();
 			this.label_heightScale = new System.Windows.Forms.Label();
 			this.textBox_heightScale = new System.Windows.Forms.TextBox();
-			this.button_expandShrink = new System.Windows.Forms.Button();
+			this.expandShrinkButton = new System.Windows.Forms.Button();
 			this.flowLayoutPanel_create.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.canvas)).BeginInit();
 			this.flowLayoutPanel_twoCommand.SuspendLayout();
@@ -226,7 +226,7 @@ namespace RectangleEditor_WinForms {
 			this.flowLayoutPanel_move.Controls.Add(this.textBox_dx);
 			this.flowLayoutPanel_move.Controls.Add(this.label_dy);
 			this.flowLayoutPanel_move.Controls.Add(this.textBox_dy);
-			this.flowLayoutPanel_move.Controls.Add(this.button_move);
+			this.flowLayoutPanel_move.Controls.Add(this.moveButton);
 			this.flowLayoutPanel_move.Location = new System.Drawing.Point(3, 3);
 			this.flowLayoutPanel_move.Name = "flowLayoutPanel_move";
 			this.flowLayoutPanel_move.Size = new System.Drawing.Size(436, 102);
@@ -264,15 +264,16 @@ namespace RectangleEditor_WinForms {
 			this.textBox_dy.Size = new System.Drawing.Size(70, 35);
 			this.textBox_dy.TabIndex = 3;
 			// 
-			// button_move
+			// moveButton
 			// 
-			this.button_move.Location = new System.Drawing.Point(274, 3);
-			this.button_move.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
-			this.button_move.Name = "button_move";
-			this.button_move.Size = new System.Drawing.Size(101, 40);
-			this.button_move.TabIndex = 4;
-			this.button_move.Text = "move";
-			this.button_move.UseVisualStyleBackColor = true;
+			this.moveButton.Location = new System.Drawing.Point(274, 3);
+			this.moveButton.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+			this.moveButton.Name = "moveButton";
+			this.moveButton.Size = new System.Drawing.Size(101, 40);
+			this.moveButton.TabIndex = 4;
+			this.moveButton.Text = "move";
+			this.moveButton.UseVisualStyleBackColor = true;
+			this.moveButton.Click += new System.EventHandler(this.moveButton_Click);
 			// 
 			// flowLayoutPanel_expandShrink
 			// 
@@ -280,7 +281,7 @@ namespace RectangleEditor_WinForms {
 			this.flowLayoutPanel_expandShrink.Controls.Add(this.textBox_widthScale);
 			this.flowLayoutPanel_expandShrink.Controls.Add(this.label_heightScale);
 			this.flowLayoutPanel_expandShrink.Controls.Add(this.textBox_heightScale);
-			this.flowLayoutPanel_expandShrink.Controls.Add(this.button_expandShrink);
+			this.flowLayoutPanel_expandShrink.Controls.Add(this.expandShrinkButton);
 			this.flowLayoutPanel_expandShrink.Location = new System.Drawing.Point(445, 3);
 			this.flowLayoutPanel_expandShrink.Name = "flowLayoutPanel_expandShrink";
 			this.flowLayoutPanel_expandShrink.Size = new System.Drawing.Size(604, 102);
@@ -320,13 +321,13 @@ namespace RectangleEditor_WinForms {
 			// 
 			// button_expandShrink
 			// 
-			this.button_expandShrink.Location = new System.Drawing.Point(404, 3);
-			this.button_expandShrink.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
-			this.button_expandShrink.Name = "button_expandShrink";
-			this.button_expandShrink.Size = new System.Drawing.Size(171, 40);
-			this.button_expandShrink.TabIndex = 4;
-			this.button_expandShrink.Text = "expand/shrink";
-			this.button_expandShrink.UseVisualStyleBackColor = true;
+			this.expandShrinkButton.Location = new System.Drawing.Point(404, 3);
+			this.expandShrinkButton.Margin = new System.Windows.Forms.Padding(40, 3, 3, 3);
+			this.expandShrinkButton.Name = "expandShrinkButton";
+			this.expandShrinkButton.Size = new System.Drawing.Size(171, 40);
+			this.expandShrinkButton.TabIndex = 4;
+			this.expandShrinkButton.Text = "expand/shrink";
+			this.expandShrinkButton.UseVisualStyleBackColor = true;
 			// 
 			// Form1
 			// 
@@ -373,13 +374,13 @@ namespace RectangleEditor_WinForms {
 		private TextBox textBox_dx;
 		private Label label_dy;
 		private TextBox textBox_dy;
-		private Button button_move;
+		private Button moveButton;
 		private FlowLayoutPanel flowLayoutPanel_expandShrink;
 		private Label label_widthScale;
 		private TextBox textBox_widthScale;
 		private Label label_heightScale;
 		private TextBox textBox_heightScale;
-		private Button button_expandShrink;
+		private Button expandShrinkButton;
 	}
 }
 

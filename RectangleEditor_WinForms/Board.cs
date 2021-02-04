@@ -14,7 +14,7 @@ namespace RectangleEditor_WinForms {
 
 		//indexの場所に存在する長方形をrで置換する
 		public void replaceRect(Rectangle r, int index) {
-			onBoardRects[index - 1] = r;
+			onBoardRects[index] = r;
 		}
 
 		//ボード上の長方形の個数を返す

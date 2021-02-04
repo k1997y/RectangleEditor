@@ -31,55 +31,35 @@ namespace RectangleEditor_WinForms {
 			}
 		}
 
-		//public void moveCmd() {
-		//	int n;
-		//	Console.Write("動かす長方形を指定してください\n-->");
-		//	n = inputInt();
+		public void moveCmd(int index,int dx,int dy) {
+			Rectangle r = board.getRect(index);
 
-		//	Rectangle r = board.getRect(n - 1);
+			r.X += dx;
+			r.Y += dy;
 
-		//	int x, y;
-		//	Console.Write("x方向の移動距離を入力\n-->");
-		//	x = inputInt();
-		//	Console.Write("y方向の移動距離を入力\n-->");
-		//	y = inputInt();
+			board.replaceRect(r, index);
+		}
 
-		//	int[] attribute = new int[5];
+		public void expand_shrinkCmd() {
+			Rectangle r = board.getRect(n - 1);
 
-		//	attribute = r.getAttribute();
-		//	attribute[2] = attribute[2] + x;
-		//	attribute[3] = attribute[3] + y;
-		//	r.setAttribute(attribute);
+			double mx, my;
+			Console.Write("幅の拡大縮小率を入力\n-->");
+			mx = double.Parse(Console.ReadLine());
+			Console.Write("y方向の移動距離を入力\n-->");
+			my = double.Parse(Console.ReadLine());
 
-		//	board.replaceRect(r, n);
-		//	Console.Write("長方形{0}が移動されました\n", n);
-		//	displayBoardCmd();
-		//}
+			int[] attribute = new int[5];
 
-		//public void expand_shrinkCmd() {
-		//	int n;
-		//	Console.Write("拡大または縮小する長方形を指定してください\n-->");
-		//	n = inputInt();
+			attribute = r.getAttribute();
+			attribute[0] = (int)Math.Round(attribute[0] * mx);
+			attribute[1] = (int)Math.Round(attribute[1] * my);
+			r.setAttribute(attribute);
 
-		//	Rectangle r = board.getRect(n - 1);
-
-		//	double mx, my;
-		//	Console.Write("幅の拡大縮小率を入力\n-->");
-		//	mx = double.Parse(Console.ReadLine());
-		//	Console.Write("y方向の移動距離を入力\n-->");
-		//	my = double.Parse(Console.ReadLine());
-
-		//	int[] attribute = new int[5];
-
-		//	attribute = r.getAttribute();
-		//	attribute[0] = (int)Math.Round(attribute[0] * mx);
-		//	attribute[1] = (int)Math.Round(attribute[1] * my);
-		//	r.setAttribute(attribute);
-
-		//	board.replaceRect(r, n);
-		//	Console.Write("長方形{0}が移動されました\n", n);
-		//	displayBoardCmd();
-		//}
+			board.replaceRect(r, n);
+			Console.Write("長方形{0}が移動されました\n", n);
+			displayBoardCmd();
+		}
 
 		//public void intersectCmd() {
 
