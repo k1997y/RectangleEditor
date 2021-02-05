@@ -8,17 +8,6 @@ namespace RectangleEditor_WinForms {
 			this.board = new Board();
 		}
 
-		public enum Commands {
-			CREATE,
-			MOVE,
-			EXPAND_SHRINK,
-			INTERSECT,
-			DELETE,
-			DELETEALL,
-			DISPLAY,
-			EXIT
-		};
-
 		public void createCmd(int width,int height,int x,int y,int color) {
 			Rectangle r = new Rectangle(width, height, x, y, color);
 
