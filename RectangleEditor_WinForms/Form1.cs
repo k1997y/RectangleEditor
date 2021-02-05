@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace RectangleEditor_WinForms {
 	public partial class Form1 : Form {
+		//[System.Runtime.InteropServices.DllImport("kernel32.dll")] // この行を追加
+		//private static extern bool AllocConsole();                 // この行を追加 
+
 		Command command;
 		//選択された長方形のインデックスのセット
 		HashSet<int> selectedRectsNumSet;
@@ -18,6 +21,8 @@ namespace RectangleEditor_WinForms {
 			InitializeComponent();
 			command = new Command();
 			selectedRectsNumSet = new HashSet<int>();
+
+			//AllocConsole();
 
 			//キャンバスの枠線を描く
 			Bitmap bmp = canvas.Image as Bitmap;
@@ -114,6 +119,21 @@ namespace RectangleEditor_WinForms {
 		}
 
 		/// <summary>
+		/// intersectボタンが押されたときの挙動を定義する
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void intersectButton_Click(object sender, EventArgs e) {
+			//選択数が2個以外の場合は実行しない
+			if(selectedRectsNumSet.Count != 2) {
+				return;
+			}
+			command.intersectCmd(selectedRectsNumSet);
+
+			DrawRects();
+		}
+
+		/// <summary>
 		/// deleteボタンが押されたときの挙動を定義する
 		/// </summary>
 		/// <param name="sender"></param>
@@ -162,20 +182,8 @@ namespace RectangleEditor_WinForms {
 					//	selectedRectNum = index;
 					//}
 				}
-				//長方形外をクリックした場合選択を解除する
-				//else if (r.isNotContain(e.X,e.Y) ){
-				//	selectedRectsNumSet.Clear();
-				//	DrawRects();
-				//	return;
-				//}
 				index++;
 			}
-
-			//長方形が選択されなかったら再描画してreturn
-			//if (selectedRectsNumSet.Count == 0) {
-			//	DrawRects();
-			//	return;
-			//}
 
 			Bitmap bmp = canvas.Image as Bitmap;
 			if (bmp != null) {
@@ -207,6 +215,18 @@ namespace RectangleEditor_WinForms {
 						case 3:
 							g.FillRectangle(Brushes.Gray, r.X, r.Y, r.Width, r.Height);
 							break;
+						case 4:
+							g.FillRectangle(Brushes.Magenta, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 5:
+							g.FillRectangle(Brushes.Orange, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 6:
+							g.FillRectangle(Brushes.Green, r.X, r.Y, r.Width, r.Height);
+							break;
+						case 7:
+							g.FillRectangle(Brushes.Cyan, r.X, r.Y, r.Width, r.Height);
+							break;
 					}
 				}
 				index++;
@@ -229,6 +249,18 @@ namespace RectangleEditor_WinForms {
 						break;
 					case 3:
 						c = Color.FromArgb(50, Color.Gray);
+						break;
+					case 4:
+						c = Color.FromArgb(50, Color.Magenta);
+						break;
+					case 5:
+						c = Color.FromArgb(50, Color.Orange);
+						break;
+					case 6:
+						c = Color.FromArgb(50, Color.Green);
+						break;
+					case 7:
+						c = Color.FromArgb(50, Color.Cyan);
 						break;
 					default:
 						return;
@@ -267,6 +299,18 @@ namespace RectangleEditor_WinForms {
 						break;
 					case 3:
 						g.FillRectangle(Brushes.Gray, r.X, r.Y, r.Width, r.Height);
+						break;
+					case 4:
+						g.FillRectangle(Brushes.Magenta, r.X, r.Y, r.Width, r.Height);
+						break;
+					case 5:
+						g.FillRectangle(Brushes.Orange, r.X, r.Y, r.Width, r.Height);
+						break;
+					case 6:
+						g.FillRectangle(Brushes.Green, r.X, r.Y, r.Width, r.Height);
+						break;
+					case 7:
+						g.FillRectangle(Brushes.Cyan, r.X, r.Y, r.Width, r.Height);
 						break;
 				}
 			}

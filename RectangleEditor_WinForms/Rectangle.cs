@@ -18,6 +18,8 @@ namespace RectangleEditor_WinForms {
 			this.Color = color;
 		}
 
+		public Rectangle() { }
+
 		public bool isSegment() {
 			return this.Width == 0 && this.Height > 0 || this.Width > 0 && this.Height == 0;
 		}
@@ -32,10 +34,10 @@ namespace RectangleEditor_WinForms {
 
 		//引数の座標が長方形の範囲内にあるならtrue
 		public bool isContain(int x, int y) {
-			if(x<this.X || x > this.X + Width) {
+			if (x < this.X || x > this.X + Width) {
 				return false;
 			}
-			if(y < this.Y || y > this.Y + Height) {
+			if (y < this.Y || y > this.Y + Height) {
 				return false;
 			}
 			return true;
@@ -43,13 +45,40 @@ namespace RectangleEditor_WinForms {
 
 		//引数の座標が長方形の範囲外にあるならtrue
 		public bool isNotContain(int x, int y) {
-			if(x<this.X || x > this.X+Width) {
+			if (x < this.X || x > this.X + Width) {
 				return true;
 			}
-			if(y<this.Y || y >this.Y + Height) {
+			if (y < this.Y || y > this.Y + Height) {
 				return true;
 			}
 			return false;
+		}
+
+		public bool hasIntersect(Rectangle r) {
+			return Math.Abs(this.X - r.X) < this.Width / 2 + r.Width / 2
+				&& Math.Abs(this.Y - r.Y) < this.Height / 2 + r.Height / 2;
+
+			//if(r.X+r.Width < this.X) {
+			//	System.Console.WriteLine("1");
+
+			//	return false;
+			//}
+			//if(r.X>this.X + this.Width) {
+			//	System.Console.WriteLine("2");
+
+			//	return false;
+			//}
+			//if (r.Y + r.Height < this.Y) {
+			//	System.Console.WriteLine("3");
+
+			//	return false;
+			//}
+			//if (r.Y > this.Y + this.Height) {
+			//	System.Console.WriteLine("4");
+
+			//	return false;
+			//}
+			//return true;
 		}
 
 		//面積を返す

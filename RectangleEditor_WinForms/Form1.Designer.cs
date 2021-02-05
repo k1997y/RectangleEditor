@@ -356,6 +356,7 @@ namespace RectangleEditor_WinForms {
 			this.intersectButton.TabIndex = 0;
 			this.intersectButton.Text = "intersect";
 			this.intersectButton.UseVisualStyleBackColor = true;
+			this.intersectButton.Click += new System.EventHandler(this.intersectButton_Click);
 			// 
 			// deleteButton
 			// 
