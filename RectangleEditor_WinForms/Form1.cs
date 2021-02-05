@@ -200,31 +200,31 @@ namespace RectangleEditor_WinForms {
 			foreach (RectangleEditor_WinForms.Rectangle r in onBoardRects) {
 				if (selectedRectsNumSet.Contains(index)) {
 					index++;
-					continue;
+					continue;				
 				} else {
 					switch (r.Color) {
-						case 0:
+						case Rectangle.Colors.RED:
 							g.FillRectangle(Brushes.Red, r.X, r.Y, r.Width, r.Height);
 							break;
-						case 1:
+						case Rectangle.Colors.BLUE:
 							g.FillRectangle(Brushes.Blue, r.X, r.Y, r.Width, r.Height);
 							break;
-						case 2:
+						case Rectangle.Colors.YELLOW:
 							g.FillRectangle(Brushes.Yellow, r.X, r.Y, r.Width, r.Height);
 							break;
-						case 3:
+						case Rectangle.Colors.GRAY:
 							g.FillRectangle(Brushes.Gray, r.X, r.Y, r.Width, r.Height);
 							break;
-						case 4:
+						case Rectangle.Colors.MAGENTA:
 							g.FillRectangle(Brushes.Magenta, r.X, r.Y, r.Width, r.Height);
 							break;
-						case 5:
+						case Rectangle.Colors.ORANGE:
 							g.FillRectangle(Brushes.Orange, r.X, r.Y, r.Width, r.Height);
 							break;
-						case 6:
+						case Rectangle.Colors.GREEN:
 							g.FillRectangle(Brushes.Green, r.X, r.Y, r.Width, r.Height);
 							break;
-						case 7:
+						case Rectangle.Colors.CYAN:
 							g.FillRectangle(Brushes.Cyan, r.X, r.Y, r.Width, r.Height);
 							break;
 					}
@@ -238,28 +238,28 @@ namespace RectangleEditor_WinForms {
 				RectangleEditor_WinForms.Rectangle r = command.GetBoard.getRect(i);
 
 				switch (r.Color) {
-					case 0:
+					case Rectangle.Colors.RED:
 						c = Color.FromArgb(50, Color.Red);
 						break;
-					case 1:
+					case Rectangle.Colors.BLUE:
 						c = Color.FromArgb(50, Color.Blue);
 						break;
-					case 2:
+					case Rectangle.Colors.YELLOW:
 						c = Color.FromArgb(50, Color.Yellow);
 						break;
-					case 3:
+					case Rectangle.Colors.GRAY:
 						c = Color.FromArgb(50, Color.Gray);
 						break;
-					case 4:
+					case Rectangle.Colors.MAGENTA:
 						c = Color.FromArgb(50, Color.Magenta);
 						break;
-					case 5:
+					case Rectangle.Colors.ORANGE:
 						c = Color.FromArgb(50, Color.Orange);
 						break;
-					case 6:
+					case Rectangle.Colors.GREEN:
 						c = Color.FromArgb(50, Color.Green);
 						break;
-					case 7:
+					case Rectangle.Colors.CYAN:
 						c = Color.FromArgb(50, Color.Cyan);
 						break;
 					default:
@@ -288,28 +288,28 @@ namespace RectangleEditor_WinForms {
 			g.Clear(Color.White);
 			foreach (RectangleEditor_WinForms.Rectangle r in onBoardRects) {
 				switch (r.Color) {
-					case 0:
+					case Rectangle.Colors.RED:
 						g.FillRectangle(Brushes.Red, r.X, r.Y, r.Width, r.Height);
 						break;
-					case 1:
+					case Rectangle.Colors.BLUE:
 						g.FillRectangle(Brushes.Blue, r.X, r.Y, r.Width, r.Height);
 						break;
-					case 2:
+					case Rectangle.Colors.YELLOW:
 						g.FillRectangle(Brushes.Yellow, r.X, r.Y, r.Width, r.Height);
 						break;
-					case 3:
+					case Rectangle.Colors.GRAY:
 						g.FillRectangle(Brushes.Gray, r.X, r.Y, r.Width, r.Height);
 						break;
-					case 4:
+					case Rectangle.Colors.MAGENTA:
 						g.FillRectangle(Brushes.Magenta, r.X, r.Y, r.Width, r.Height);
 						break;
-					case 5:
+					case Rectangle.Colors.ORANGE:
 						g.FillRectangle(Brushes.Orange, r.X, r.Y, r.Width, r.Height);
 						break;
-					case 6:
+					case Rectangle.Colors.GREEN:
 						g.FillRectangle(Brushes.Green, r.X, r.Y, r.Width, r.Height);
 						break;
-					case 7:
+					case Rectangle.Colors.CYAN:
 						g.FillRectangle(Brushes.Cyan, r.X, r.Y, r.Width, r.Height);
 						break;
 				}

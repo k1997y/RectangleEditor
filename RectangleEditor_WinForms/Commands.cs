@@ -72,7 +72,7 @@ namespace RectangleEditor_WinForms {
 				int height = 0;
 				int x = 0;
 				int y = 0;
-				int color = 0;
+				Rectangle.Colors color = Rectangle.Colors.RED;
 
 				//幅を決定
 				if (r1.X > r2.X) {
@@ -94,25 +94,25 @@ namespace RectangleEditor_WinForms {
 
 				//色の決定
 				if(r1.Color == r2.Color) {
-					color = 3;
+					color = Rectangle.Colors.GRAY;
 				}
 				//redとblueならmagenta
-				else if((r1.Color == 0 && r2.Color == 1) ||(r2.Color == 0 && r1.Color == 1)) {
-					color = 4;
+				else if((r1.Color == Rectangle.Colors.RED && r2.Color == Rectangle.Colors.BLUE) ||(r2.Color == Rectangle.Colors.RED && r1.Color == Rectangle.Colors.BLUE)) {
+					color = Rectangle.Colors.MAGENTA;
 				}
 				//redとyellowならorange
-				else if ((r1.Color == 0 && r2.Color == 2) || (r2.Color == 0 && r1.Color == 2)) {
-					color = 5;
+				else if ((r1.Color == Rectangle.Colors.RED && r2.Color == Rectangle.Colors.YELLOW) || (r2.Color == Rectangle.Colors.RED && r1.Color == Rectangle.Colors.YELLOW)) {
+					color = Rectangle.Colors.ORANGE;
 				}
 				//blueとyellowならgreen
-				else if ((r1.Color == 1 && r2.Color == 2) || (r2.Color == 1 && r1.Color == 2)) {
-					color = 6;
+				else if ((r1.Color == Rectangle.Colors.BLUE && r2.Color == Rectangle.Colors.YELLOW) || (r2.Color == Rectangle.Colors.BLUE && r1.Color == Rectangle.Colors.YELLOW)) {
+					color = Rectangle.Colors.GREEN;
 				}
 				//それ以外ならcyan
 				else {
-					color = 7;
+					color = Rectangle.Colors.CYAN;
 				}
-				createCmd(width, height, x, y,color);
+				createCmd(width, height, x, y,(int)color);
 			}
 
 

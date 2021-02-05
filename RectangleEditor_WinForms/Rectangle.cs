@@ -8,17 +8,36 @@ namespace RectangleEditor_WinForms {
 		public int Height { get; set; }
 		public int X { get; set; }
 		public int Y { get; set; }
-		public int Color { get; set; }
+		//public int Color { get; set; }
+		public Colors Color { get; set; }
 
-		public Rectangle(int width, int height, int x, int y, int color) {
+		//public Rectangle(int width, int height, int x, int y, int color) {
+		//	this.Width = width;
+		//	this.Height = height;
+		//	this.X = x;
+		//	this.Y = y;
+		//	this.Color = color;
+		//}
+		public Rectangle(int width,int height ,int x, int y, int color) {
 			this.Width = width;
 			this.Height = height;
 			this.X = x;
 			this.Y = y;
-			this.Color = color;
+			this.Color = (Colors)color;
 		}
 
 		public Rectangle() { }
+
+		public enum Colors {
+			RED,
+			BLUE,
+			YELLOW,
+			GRAY,
+			MAGENTA,
+			ORANGE,
+			GREEN,
+			CYAN
+		}
 
 		public bool isSegment() {
 			return this.Width == 0 && this.Height > 0 || this.Width > 0 && this.Height == 0;
