@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RectangleEditor_WinForms {
-	public partial class Form1 : Form {
+	public partial class RectangleEditor : Form {
 		//[System.Runtime.InteropServices.DllImport("kernel32.dll")] // この行を追加
 		//private static extern bool AllocConsole();                 // この行を追加 
 
@@ -17,7 +17,7 @@ namespace RectangleEditor_WinForms {
 		//選択された長方形のインデックスのセット
 		HashSet<int> selectedRectsNumSet;
 
-		public Form1() {
+		public RectangleEditor() {
 			InitializeComponent();
 			command = new Command();
 			selectedRectsNumSet = new HashSet<int>();

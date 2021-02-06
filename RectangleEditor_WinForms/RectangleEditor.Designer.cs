@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace RectangleEditor_WinForms {
-	partial class Form1 {
+	partial class RectangleEditor {
 		/// <summary>
 		///  Required designer variable.
 		/// </summary>
@@ -379,7 +379,7 @@ namespace RectangleEditor_WinForms {
 			this.deleteAllButton.UseVisualStyleBackColor = true;
 			this.deleteAllButton.Click += new System.EventHandler(this.deleteAllButton_Click);
 			// 
-			// Form1
+			// RectangleEditor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -387,7 +387,7 @@ namespace RectangleEditor_WinForms {
 			this.Controls.Add(this.canvas);
 			this.Controls.Add(this.flowLayoutPanel_create);
 			this.Controls.Add(this.flowLayoutPanel_twoCommand);
-			this.Name = "Form1";
+			this.Name = "RectangleEditor";
 			this.Text = "RectangleEditor";
 			this.flowLayoutPanel_create.ResumeLayout(false);
 			this.flowLayoutPanel_create.PerformLayout();
