@@ -37,7 +37,7 @@ namespace RectangleEditor_WinForms {
 			onBoardRects.Clear();
 		}
 
-		public bool isDuplicating(Rectangle r) {
+		public bool isOverlapping(Rectangle r) {
 			foreach(Rectangle rect in onBoardRects) {
 				if(rect == r) {
 					return true;
