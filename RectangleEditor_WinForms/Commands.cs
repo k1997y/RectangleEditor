@@ -8,17 +8,16 @@ namespace RectangleEditor_WinForms {
 			this.board = new Board();
 		}
 
-		public void createCmd(int width,int height,int x,int y,int color) {
+		public void createCmd(int width,int height,int x,int y,int color){
 			Rectangle r = new Rectangle(width, height, x, y, color);
 
 			if (board.isDuplicating(r)) {
-				Console.Write("長方形が重複しています\n");
-				return;
+				throw new Exception("長方形が重複しています");
 			} else if (board.countRects() >= 10) {
 				Console.Write("10個以上の長方形を配置することができません\n");
 				return;
 			}else if (!board.IsFit(r)) {
-				return;
+				throw new Exception("長方形がボードからはみ出しています");
 			} else {
 				board.addRect(r);
 			}

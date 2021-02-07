@@ -69,8 +69,12 @@ namespace RectangleEditor_WinForms {
 				System.Console.WriteLine(exception.Message);
 			}
 
-			command.createCmd(width, height, x, y, color);
-			DrawRects();
+			try {
+				command.createCmd(width, height, x, y, color);
+			}catch(Exception exception) {
+				MessageBox.Show(exception.Message,"エラー",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+			}
+				DrawRects();
 		}
 
 		/// <summary>
