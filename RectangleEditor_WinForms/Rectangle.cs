@@ -82,5 +82,21 @@ namespace RectangleEditor_WinForms {
 		public int calArea() {
 			return Width * Height;
 		}
+
+		
+		public static bool operator==(Rectangle r1,Rectangle r2) {
+			if (r1.Width != r2.Width) return false;
+			if (r1.Height != r2.Height) return false;
+			if (r1.X != r2.X) return false;
+			if (r1.Y != r2.Y) return false;
+			return true;
+		}
+		public static bool operator !=(Rectangle r1, Rectangle r2) {
+			if (r1.Width == r2.Width) return false;
+			if (r1.Height == r2.Height) return false;
+			if (r1.X == r2.X) return false;
+			if (r1.Y == r2.Y) return false;
+			return true;
+		}
 	}
 }
