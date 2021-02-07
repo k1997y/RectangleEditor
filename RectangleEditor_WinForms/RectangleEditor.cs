@@ -185,6 +185,7 @@ namespace RectangleEditor_WinForms {
 				index++;
 			}
 
+
 			Bitmap bmp = canvas.Image as Bitmap;
 			if (bmp != null) {
 				bmp.Dispose();
