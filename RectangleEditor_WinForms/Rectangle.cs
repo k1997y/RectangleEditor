@@ -76,28 +76,6 @@ namespace RectangleEditor_WinForms {
 		public bool hasIntersect(Rectangle r) {
 			return Math.Abs(this.X - r.X) < this.Width / 2 + r.Width / 2
 				&& Math.Abs(this.Y - r.Y) < this.Height / 2 + r.Height / 2;
-
-			//if(r.X+r.Width < this.X) {
-			//	System.Console.WriteLine("1");
-
-			//	return false;
-			//}
-			//if(r.X>this.X + this.Width) {
-			//	System.Console.WriteLine("2");
-
-			//	return false;
-			//}
-			//if (r.Y + r.Height < this.Y) {
-			//	System.Console.WriteLine("3");
-
-			//	return false;
-			//}
-			//if (r.Y > this.Y + this.Height) {
-			//	System.Console.WriteLine("4");
-
-			//	return false;
-			//}
-			//return true;
 		}
 
 		//面積を返す

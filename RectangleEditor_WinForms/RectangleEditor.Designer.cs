@@ -211,7 +211,7 @@ namespace RectangleEditor_WinForms {
 			// 
 			this.canvas.Location = new System.Drawing.Point(128, 251);
 			this.canvas.Name = "canvas";
-			this.canvas.Size = new System.Drawing.Size(1626, 829);
+			this.canvas.Size = new System.Drawing.Size(Board.WIDTH, Board.HEIGHT);
 			this.canvas.TabIndex = 14;
 			this.canvas.TabStop = false;
 			this.canvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.canvas_MouseClick);

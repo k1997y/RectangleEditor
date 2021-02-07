@@ -4,6 +4,9 @@ using System.Text;
 
 namespace RectangleEditor_WinForms {
 	public class Board {
+		public static readonly int WIDTH = 1600;
+		public static readonly int HEIGHT = 800;
+
 		public Board() {
 			onBoardRects = new List<Rectangle>();
 		}
@@ -43,6 +46,21 @@ namespace RectangleEditor_WinForms {
 			return false;
 		}
 
+		/// <summary>
+		/// 引数の長方形がボード上に収まるならtrue
+		/// </summary>
+		/// <param name="r"></param>
+		/// <returns></returns>
+		public bool IsFit(Rectangle r) {
+			if(r.X+r.Width > WIDTH) {
+				return false;
+			}
+			if(r.Y+r.Height > HEIGHT) {
+				return false;
+			}
+			return true;
+		}
+
 		//ボード上のある点が長方形に含まれない場合にtrue
 		public bool isNotContain(int x, int y) {
 			List<Rectangle> rects = OnBoardRects;
@@ -54,9 +72,6 @@ namespace RectangleEditor_WinForms {
 			}
 			return true;
 		}
-
-		private const int WIDTH = 500;
-		private const int HEIGHT = 400;
 
 		private List<Rectangle> onBoardRects;
 		public List<Rectangle> OnBoardRects {
