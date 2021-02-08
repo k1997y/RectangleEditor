@@ -37,6 +37,7 @@ namespace RectangleEditor_WinForms {
 			onBoardRects.Clear();
 		}
 
+		//ボード上の長方形と重なるならtrue
 		public bool isOverlapping(Rectangle r) {
 			foreach(Rectangle rect in onBoardRects) {
 				if(rect == r) {

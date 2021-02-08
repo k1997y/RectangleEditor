@@ -66,15 +66,15 @@ namespace RectangleEditor_WinForms {
 				x = int.Parse(textBox_x.Text);
 				y = int.Parse(textBox_y.Text);
 			} catch (FormatException exception) {
-				System.Console.WriteLine(exception.Message);
+				MessageBox.Show(exception.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 			}
 
 			try {
 				command.createCmd(width, height, x, y, color);
-			}catch(Exception exception) {
-				MessageBox.Show(exception.Message,"エラー",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+			} catch (Exception exception) {
+				MessageBox.Show(exception.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 			}
-				DrawRects();
+			DrawRects();
 		}
 
 		/// <summary>
@@ -90,11 +90,17 @@ namespace RectangleEditor_WinForms {
 				dx = int.Parse(textBox_dx.Text);
 				dy = int.Parse(textBox_dy.Text);
 			} catch (FormatException exception) {
-				System.Console.WriteLine(exception.Message);
+				MessageBox.Show(exception.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
 			}
 
 			foreach (int index in selectedRectsNumSet) {
-				command.moveCmd(index, dx, dy);
+				try {
+					command.moveCmd(index, dx, dy);
+				} catch (Exception exception) {
+					MessageBox.Show(exception.Message, "エラー", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+				}
 			}
 			DrawRects();
 
@@ -129,7 +135,7 @@ namespace RectangleEditor_WinForms {
 		/// <param name="e"></param>
 		private void intersectButton_Click(object sender, EventArgs e) {
 			//選択数が2個以外の場合は実行しない
-			if(selectedRectsNumSet.Count != 2) {
+			if (selectedRectsNumSet.Count != 2) {
 				return;
 			}
 			command.intersectCmd(selectedRectsNumSet);
@@ -171,15 +177,15 @@ namespace RectangleEditor_WinForms {
 			}
 
 			int index = 0;
-			if (command.GetBoard.isNotContain(e.X,e.Y)) {
+			if (command.GetBoard.isNotContain(e.X, e.Y)) {
 				selectedRectsNumSet.Clear();
 				DrawRects();
 				return;
 			}
 			foreach (RectangleEditor_WinForms.Rectangle r in onBoardRects) {
 				if (r.isContain(e.X, e.Y)) {
-						selectedRectsNumSet.Add(index);
-					
+					selectedRectsNumSet.Add(index);
+
 					//面積がより小さい方を選択された長方形とみなす
 					//else if (selectedRect.calArea() > r.calArea()) {
 					//	selectedRect = r;
@@ -205,7 +211,7 @@ namespace RectangleEditor_WinForms {
 			foreach (RectangleEditor_WinForms.Rectangle r in onBoardRects) {
 				if (selectedRectsNumSet.Contains(index)) {
 					index++;
-					continue;				
+					continue;
 				} else {
 					switch (r.Color) {
 						case Rectangle.Colors.RED:

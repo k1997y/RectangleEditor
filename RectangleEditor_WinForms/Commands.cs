@@ -29,7 +29,11 @@ namespace RectangleEditor_WinForms {
 			r.X += dx;
 			r.Y += dy;
 
-			board.replaceRect(r, index);
+			if (!board.isOverlapping(r)) {
+				board.replaceRect(r, index);
+			}else if (board.IsFit(r)) {
+				board.replaceRect(r, index);
+			}
 		}
 
 		public void expand_shrinkCmd(int index,double widthScale,double heightScale) {
@@ -38,7 +42,11 @@ namespace RectangleEditor_WinForms {
 			r.Width = (int)Math.Round(r.Width*widthScale);
 			r.Height = (int)Math.Round(r.Height * heightScale);
 
-			board.replaceRect(r, index);
+			if (!board.isOverlapping(r)) {
+				board.replaceRect(r, index);
+			} else if (board.IsFit(r)) {
+				board.replaceRect(r, index);
+			}
 		}
 
 		
@@ -56,8 +64,6 @@ namespace RectangleEditor_WinForms {
 				}
 				i++;
 			}
-
-
 
 			if (r1.hasIntersect(r2)) {
 				int width = 0;
@@ -106,15 +112,12 @@ namespace RectangleEditor_WinForms {
 				}
 				createCmd(width, height, x, y,(int)color);
 			}
-
-
 		}
 
 		public void deleteCmd(int index) {
 			if (board.countRects() == 0) {
 				return;
 			}
-
 			board.deleteRect(index);
 		}
 
